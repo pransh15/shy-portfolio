@@ -409,7 +409,7 @@
         "📝 In progress",
         "😮‍ Made-from-scratch complex components",
         "😊 Beautiful and smooth UI, good user experience",
-        "💕 Based on Angular18"
+        "\uD83E\uDD16 Server Side Rendering"
       ],
       "github": "https://github.com/ArielFalcon/TODO-list",
       "stack": {
@@ -419,6 +419,25 @@
         "SCSS": "simple-icons:sass",
         "NodeJS": "ri:nodejs-line",
         "Firebase": "simple-icons:firebase"
+      }
+    },
+    {
+      "name": "Portfolio",
+      "isActive": false,
+      "description": "This website! My personal portfolio, made with Astro. Integrates many themes and key shortcut actions.",
+      "highlights": [
+        "🚀 Fast, modern and SEO-friendly",
+        "🎨 Printable CV generation",
+        "〔N〕Crazy NeoVim mode, try it!"
+      ],
+      "github": "https://github.com/ArielFalcon/portfolio",
+      "stack": {
+        "Astro": "simple-icons:astro",
+        "Tailwind": "mdi:tailwind",
+        "TypeScript": "simple-icons:typescript",
+        "NodeJS": "ri:nodejs-line",
+        "PNPM": "simple-icons:pnpm",
+        "Vercel": "simple-icons:vercel"
       }
     }
   ]
