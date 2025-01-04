@@ -1,0 +1,425 @@
+{
+  "analyticsCode": "",
+  "pageLayout": "two-column",
+  "basics": {
+    "name": "Ariel G. Falcón",
+    "label": "Software Developer",
+    "image": "/avatar.png",
+    "email": "falconyumn@gmail.com",
+    "url": "https://www.linkedin.com/in/arielfalcon/",
+    "summary": "Front-end developer, at the moment. I work on Typescript with Angular and Vue; with HTML5 and SCSS. I'm interested in Back-end Development, Cloud Computing and DevOps.",
+    "theme": "red",
+    "location": {
+      "address": "Alcalá de Henares",
+      "city": "Madrid",
+      "countryCode": "ES",
+      "region": "Spain"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "icon": "ri:linkedin-fill",
+        "username": "Ariel Falcón",
+        "url": "https://www.linkedin.com/in/arielfalcon/"
+      },
+      {
+        "network": "GitHub",
+        "icon": "mdi:github",
+        "username": "ArielFalcon",
+        "url": "https://github.com/ArielFalcon"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "TEIDE Formation Center – Spain",
+      "url": "https://www.linkedin.com/company/teide-centros-de-formaci%C3%B3n/",
+      "area": "Web Development",
+      "studyType": "Full-time student",
+      "startDate": "2023-04-01",
+      "endDate": "2023-09-01"
+    },
+    {
+      "institution": "Calixto García Medical School – Cuba",
+      "url": "",
+      "area": "Medicine (unfinished)",
+      "studyType": "Full-time student",
+      "startDate": "2018-9-01",
+      "endDate": "2021-7-01"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Certified Cloud Practitioner – Foundational",
+      "date": "2025-05-01",
+      "url": "",
+      "issuer": "Amazon"
+    },
+    {
+      "name": "AWS Certified Developer – Associate",
+      "date": "2025-05-01",
+      "url": "",
+      "issuer": "Amazon"
+    },
+    {
+      "name": "C1 Advanced English",
+      "date": "2025-01-03",
+      "url": "https://cert.efset.org/es/6jDrGH",
+      "issuer": "EF SET"
+    }
+  ],
+  "work": [
+    {
+      "name": "Zener Soft Consulting",
+      "position": "Front-end Developer",
+      "location_type": "Remote",
+      "location": "ES",
+      "url": "https://www.linkedin.com/company/aitor-pelaez-zenerconsulting-com/",
+      "startDate": "2023-07-03",
+      "endDate": null,
+      "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration.",
+      "highlights": [
+        "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
+      ],
+      "responsibilities": [
+        "Developed and maintained front-end projects, ensuring scalability, performance, clean code, efficient architecture and robust user experiences.",
+        "Collaborated with cross-functional teams of developers, designers, and project managers to deliver high-quality solutions.",
+        "Ensured code quality and optimized front-end performance to meet user needs and business objectives.",
+        "Managed complex, data-intensive projects, ensuring smooth integration of business logic and user interfaces.",
+        "Designed and developed highly reactive components and workflows to improve application efficiency and user interaction."
+      ],
+      "achievements": [
+        "Optimized front-end performance by resolving critical issues, improving page load times, and enhancing user experience.",
+        "Developed an internal tool to streamline client-owned code documentation, introducing interactive design guidelines and testable components.",
+        "Created a highly complex Angular application for the national healthcare system, successfully handling large-scale data and implementing intricate business logic.",
+        "Built reusable and scalable Vue components for a multinational client, ensuring consistency and improving code quality across multiple platforms."
+      ],
+      "skills": {
+        "HTML5": "simple-icons:html5",
+        "CSS3": "ri:css3-fill",
+        "SCSS": "simple-icons:sass",
+        "Bootstrap": "simple-icons:bootstrap",
+        "JavaScript ECMA6+": "simple-icons:javascript",
+        "TypeScript": "simple-icons:typescript",
+        "Vue": "mdi:vuejs",
+        "Angular": "simple-icons:angular",
+        "Jasmine": "simple-icons:jasmine",
+        "Jest": "simple-icons:jest",
+        "NodeJS": "ri:nodejs-line",
+        "Postman": "simple-icons:postman",
+        "i18n": "simple-icons:i18next",
+        "Git": "mdi:git",
+        "GitHub": "mdi:github",
+        "Figma": "simple-icons:figma",
+        "Jira": "simple-icons:jira"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "HTML",
+      "icon": "simple-icons:html5",
+      "level": "Advanced",
+      "keywords": [
+        "Web Development",
+        "Frontend"
+      ]
+    },
+    {
+      "name": "CSS",
+      "icon": "ri:css3-fill",
+      "level": "Advanced",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "SCSS",
+      "icon": "simple-icons:sass",
+      "level": "Advanced",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Preprocessor",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "Tailwind",
+      "icon": "mdi:tailwind",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Framework",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "Bootstrap",
+      "icon": "simple-icons:bootstrap",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "CSS Framework",
+        "Responsive Design"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "icon": "simple-icons:javascript",
+      "level": "Expert",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "Fullstack"
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "icon": "simple-icons:typescript",
+      "level": "Expert",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Backend",
+        "JavaScript Superset"
+      ]
+    },
+    {
+      "name": "Angular",
+      "icon": "simple-icons:angular",
+      "level": "Advanced",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "JavaScript Framework",
+        "UI"
+      ]
+    },
+    {
+      "name": "RxJS",
+      "icon": "simple-icons:reactivex",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "Reactive Programming",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "NgRx",
+      "icon": "simple-icons:ngrx",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "State Management",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "Vue",
+      "icon": "mdi:vuejs",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "JavaScript Library",
+        "UI"
+      ]
+    },
+    {
+      "name": "Node",
+      "icon": "ri:nodejs-line",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Backend",
+        "JavaScript",
+        "Server"
+      ]
+    },
+    {
+      "name": "PNPM",
+      "icon": "simple-icons:pnpm",
+      "level": "Beginner",
+      "keywords": [
+        "Package Manager",
+        "Web Development",
+        "Frontend",
+        "Backend"
+      ]
+    },
+    {
+      "name": "MongoDB",
+      "icon": "simple-icons:mongodb",
+      "level": "Beginner",
+      "keywords": [
+        "Databases",
+        "File",
+        "Data Storage",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Git",
+      "icon": "mdi:git",
+      "level": "Advanced",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "icon": "mdi:github",
+      "level": "Expert",
+      "keywords": [
+        "Version Control",
+        "Collaboration",
+        "Source Code",
+        "Git"
+      ]
+    },
+    {
+      "name": "Docker",
+      "icon": "mdi:docker",
+      "level": "Intermediate",
+      "keywords": [
+        "Virtual Environments",
+        "Backend"
+      ]
+    },
+    {
+      "name": "AWS",
+      "icon": "simple-icons:amazonaws",
+      "level": "Beginner",
+      "keywords": [
+        "Cloud Computing",
+        "Backend",
+        "Infrastructure"
+      ]
+    },
+    {
+      "name": "Python",
+      "icon": "simple-icons:python",
+      "level": "Beginner",
+      "keywords": [
+        "Scripting",
+        "Automation",
+        "Web Development"
+      ]
+    },
+    {
+      "name": "Jest",
+      "icon": "simple-icons:jest",
+      "level": "Intermediate",
+      "keywords": [
+        "Testing",
+        "Web Development",
+        "Frontend",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Jasmine",
+      "icon": "simple-icons:jasmine",
+      "level": "Intermediate",
+      "keywords": [
+        "Testing",
+        "Web Development",
+        "Frontend",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Astro",
+      "icon": "simple-icons:astro",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "SSR",
+        "Static Generation"
+      ]
+    },
+    {
+      "name": "Shell",
+      "icon": "simple-icons:shell",
+      "level": "Beginner",
+      "keywords": [
+        "Scripting",
+        "Automation"
+      ]
+    },
+    {
+      "name": "Linux",
+      "icon": "simple-icons:linux",
+      "level": "Beginner",
+      "keywords": [
+        "OS",
+        "Scripting",
+        "Automation"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Advanced - C1"
+    }
+  ],
+  "projects": [
+    {
+      "name": "CV Matching System",
+      "isActive": true,
+      "description": "An private AI-driven CV matching system, which can help you find the most suitable job. Automates the recruitment process and matches candidates with the most suitable job.",
+      "highlights": [
+        "🎯 Tailored job recommendations, creating a personalized job search experience",
+        "✨ AI-driven complex workflows ",
+        "🚀 80% increase in productivity"
+      ],
+      "stack": {
+        "Python": "simple-icons:python",
+        "Apache Airflow": "simple-icons:apacheairflow",
+        "Redis": "simple-icons:redis",
+        "Firebase": "simple-icons:firebase",
+        "Google Cloud": "simple-icons:googlecloud",
+        "Claude": "ri:claude-fill",
+        "Groq": "ri:robot-2-fill"
+      },
+      "url": "https://www.gringojobs.com"
+    },
+    {
+      "name": "TODO List",
+      "isActive": false,
+      "description": "A simple app to showcase my skills in Angular. It's a TODO list with a beautiful and smooth UI, good user experience and best practices. Not finished yet.",
+      "highlights": [
+        "📝 In progress",
+        "😮‍ Made-from-scratch complex components",
+        "😊 Beautiful and smooth UI, good user experience",
+        "💕 Based on Angular18"
+      ],
+      "github": "https://github.com/ArielFalcon/TODO-list",
+      "stack": {
+        "Angular": "simple-icons:angular",
+        "RxJS": "simple-icons:reactivex",
+        "TypeScript": "simple-icons:typescript",
+        "SCSS": "simple-icons:sass",
+        "NodeJS": "ri:nodejs-line",
+        "Firebase": "simple-icons:firebase"
+      }
+    }
+  ]
+}
