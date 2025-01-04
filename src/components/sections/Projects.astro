@@ -44,7 +44,8 @@ import { projects } from "@cv";
                 {github && (
                   <a
                     href={github}
-                    title="View slug repository on GitHub"
+                    title={`View ${name} in GitHub`}
+                    aria-label={`View ${name} in GitHub`}
                     target="_blank"
                     rel="noopener"
                     class="opacity-75 transition duration-100 hover:scale-125 hover:opacity-100"

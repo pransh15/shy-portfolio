@@ -41,7 +41,7 @@
     },
     {
       "institution": "Calixto García Medical School – Cuba",
-      "url": "",
+      "url": "https://www.linkedin.com/company/hospital-universitario-calixto-garcia/?originalSubdomain=cu",
       "area": "Medicine (unfinished)",
       "studyType": "Full-time student",
       "startDate": "2018-9-01",
@@ -433,12 +433,29 @@
       "github": "https://github.com/ArielFalcon/portfolio",
       "stack": {
         "Astro": "simple-icons:astro",
-        "Tailwind": "mdi:tailwind",
         "TypeScript": "simple-icons:typescript",
+        "Tailwind": "mdi:tailwind",
         "NodeJS": "ri:nodejs-line",
         "PNPM": "simple-icons:pnpm",
         "Vercel": "simple-icons:vercel"
       }
+    },
+    {
+      "name":"AI Web Scraper",
+      "isActive": false,
+      "description": "A web scraper that uses AI to extract data from websites. It's a tool to automate the data extraction process, using machine learning to identify and extract data from websites.",
+      "highlights": [
+        "🤖 Simple script",
+        "🔍 Data Extraction",
+        "🌐 Web scraping"
+      ],
+      "stack": {
+        "Python": "simple-icons:python",
+        "Selenium": "simple-icons:selenium",
+        "ChromeDriver": "ri:chrome-fill",
+        "Groq": "ri:robot-2-fill"
+      },
+      "github": "https://github.com/ArielFalcon/ai_web_scrapper"
     }
   ]
 }
