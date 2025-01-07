@@ -4,7 +4,7 @@
     <img src="public/astro-vim.png" alt="logo" width="200"/>
 </p>
 
-##  About
+## 〔ℹ〕 About
 
 This project is refactored from the original [**dev-portfolio**](https://github.com/Smilesharks/dev-portfolio) project, thanks for his work.
 
