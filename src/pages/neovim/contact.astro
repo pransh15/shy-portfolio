@@ -33,21 +33,21 @@ const parsedProfiles = profiles.map(({url}) => {
       <p class="mb-2">version 0.0.1</p>
       <p class="mb-4">I would like to meet you too, please use the contact information below:</p>
       
-      <a href={`mailto:${rawEmail}`}>{emailBody}<span class='symbol'>[at]</span>{emailDomain}<span class='symbol'>[dot]</span>{emailExtension}</a>
+      <!-- Email render -->
+      <a href={`mailto:${rawEmail}`}>
+        {emailBody}<span class='symbol'>[at]</span>{emailDomain}<span class='symbol'>[dot]</span>{emailExtension}
+      </a>
       
-      {
-        parsedProfiles && parsedProfiles.map(({domain, extension, params}) => {
-        return (
-          <a>
-            {domain}<span class='symbol'>[dot]</span>{extension}<span class='symbol'>[slash]</span>{params.map((param, index) => {
-              return (
-                <span>{param}{index < params.length - 1 ? <span class='symbol'>[slash]</span> : ''}</span>
-              )
-          })}
-          </a>
-        )
-      })
-      }
+      <!-- Contacts render -->
+      {parsedProfiles && parsedProfiles.map(({ domain, extension, params }) => (
+        <a>
+          {domain}<span class='symbol'>[dot]</span>{extension}<span class='symbol'>[slash]</span>{
+            params.map((param, index) => (
+              <span>{param}{index < params.length - 1 ? <span class='symbol'>[slash]</span> : ''}</span>
+            ))
+          }
+        </a>
+      ))}
     </div>
   </div>
 </Layout>
