@@ -1,35 +1,104 @@
-interface BlogPost {
-  title: string;
-  content: string;
-  path: string;
-}
-
-let blogPosts: BlogPost[] = [];
-
-async function fetchBlogPosts() {
-  const response = await fetch('/api/blog-posts');
-  blogPosts = await response.json();
-}
-
-function performSearch(query: string) {
-  const results = blogPosts.filter(post => 
-    post.title.toLowerCase().includes(query.toLowerCase()) ||
-    post.content.toLowerCase().includes(query.toLowerCase())
-  );
+function performSearch(searchTerm: string): void {
+  // Clear previous search results
+  clearSearchResults();
   
-  const searchResults = document.getElementById('search-results');
-  searchResults!.innerHTML = results.map(post => `
-    <a href="${post.path}" class="block p-2 hover:bg-nvim-gray">
-      <h3 class="font-bold">${post.title}</h3>
-      <p class="text-sm">${post.content.substring(0, 100)}...</p>
-    </a>
-  `).join('');
+  // Ensure the search term is not empty
+  if (!searchTerm) return;
   
-  searchResults!.classList.remove('hidden');
+  // Create a regular expression for searching
+  const regex = new RegExp(searchTerm, 'gi'); // 'g' for global, 'i' for case insensitive
+  
+  // Search for the term within the body text
+  const bodyText = document.body.innerText;
+  
+  // Array to store match positions
+  let match: RegExpExecArray | null;
+  const results: number[] = [];
+  
+  // Use exec to find all matches
+  while ((match = regex.exec(bodyText)) !== null) {
+    results.push(match.index);
+  }
+  
+  // If we found results, highlight the search terms
+  if (results.length > 0) {
+    highlightSearchResults(searchTerm);
+  } else {
+    console.log('No matches found.');
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetchBlogPosts();
-});
+function highlightSearchResults(searchTerm: string): void {
+  // Ensure the document body is not null or undefined
+  if (document.body) {
+    // Find all text nodes in the body
+    const textNodes: Text[] = getTextNodes(document.body);
+    
+    textNodes.forEach((node: Text) => {
+      const nodeText = node.nodeValue;
+      if (nodeText && nodeText.match(new RegExp(searchTerm, 'gi'))) {
+        // Split the node text by the search term to highlight it
+        const parts: string[] = nodeText.split(new RegExp(`(${searchTerm})`, 'gi'));
+        
+        // Clear the current text content
+        const fragment: DocumentFragment = document.createDocumentFragment();
+        
+        parts.forEach((part: string) => {
+          if (part.match(new RegExp(searchTerm, 'gi'))) {
+            // Wrap matched part with a <mark> tag
+            const mark: HTMLMarkElement = document.createElement('mark');
+            mark.className = 'highlight';
+            mark.textContent = part;
+            fragment.appendChild(mark);
+          } else {
+            // Add non-matching text as it is
+            fragment.appendChild(document.createTextNode(part));
+          }
+        });
+        
+        // Replace the old text node with the highlighted content
+        node.parentNode?.replaceChild(fragment, node);
+      }
+    });
+  } else {
+    console.log('Error: document body is not available.');
+  }
+}
 
+function getTextNodes(node: Node): Text[] {
+  let textNodes: Text[] = [];
+  
+  // If the node is a text node, add it to the list
+  if (node.nodeType === 3) {
+    textNodes.push(node as Text);
+  }
+  
+  // If the node has child nodes, recurse through them
+  if (node.hasChildNodes()) {
+    node.childNodes.forEach((child: Node) => {
+      textNodes = textNodes.concat(getTextNodes(child));
+    });
+  }
+  
+  return textNodes;
+}
+
+function clearSearchResults(): void {
+  // Ensure the document body is available
+  if (document.body) {
+    // Find all highlighted elements
+    const highlighted: NodeListOf<HTMLElement> = document.querySelectorAll('.highlight');
+    highlighted.forEach((el: HTMLElement) => {
+      // Safely remove the <mark> tag and keep the text content
+      const parent: Node | null = el.parentNode;
+      if (parent && el.outerHTML) {
+        parent.innerHTML = parent.innerHTML.replace(el.outerHTML, el.innerText);
+      }
+    });
+  } else {
+    console.log('Error: document body is not available.');
+  }
+}
+
+// Expose the performSearch function globally for access
 window.performSearch = performSearch;

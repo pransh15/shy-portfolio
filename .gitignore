@@ -26,3 +26,6 @@ yarn-error.log
 *.env.*.local
 *.DS_Store
 *.swp
+
+# Vercel
+.vercel

@@ -61,11 +61,6 @@ function handleEscape() {
   currentMode = 'NORMAL';
   commandBuffer = '';
   window.updateStatusBar(currentMode, '');
-  const searchResults = document.getElementById('search-results');
-  if (searchResults) {
-    searchResults.innerHTML = '';
-    searchResults.classList.add('hidden');
-  }
 }
 
 function handleCommand(command: string) {
@@ -87,6 +82,11 @@ function handleCommand(command: string) {
       case 'h':
         window.location.href = '/neovim/help';
         break;
+      case 'b':
+        const keyBindings = document.getElementById('key-bindings');
+        if (keyBindings) {
+          keyBindings.classList.toggle('hidden');
+        }
       default:
         console.log('Unknown command:', cmd);
     }
@@ -141,8 +141,15 @@ window.updateStatusBar(undefined, undefined, currentPath === '/' ? 'Landing Page
 
 function navigateUp() {
   const currentPath = window.location.pathname;
-  
-  if (currentPath === '/neovim') return; // Ya en la raíz
+  if (currentPath === '/') return; // Already at root
 
-  history.back();
+  const pathParts = currentPath.split('/').filter(Boolean);
+  if (pathParts.length === 1) {
+    // If only one level deep, go to root
+    window.location.href = '/';
+  } else {
+    // Remove the last part of the path
+    const newPath = '/' + pathParts.slice(0, -1).join('/');
+    window.location.href = newPath;
+  }
 }
