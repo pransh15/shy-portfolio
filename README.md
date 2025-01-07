@@ -1,14 +1,15 @@
 ## Print-friendly portfolio CV
 
-![preview](https://github.com/user-attachments/assets/44c47034-06e4-412a-b9dd-014593b32215)
+<p>
+    <img src="public/astro-vim.png" alt="logo" width="200"/>
+</p>
 
-## 📄 About
+##  About
 
 This project is refactored from the original [**dev-portfolio**](https://github.com/Smilesharks/dev-portfolio) project, thanks for his work.
 
-I use iconify instead of SVG icons for better dev experience.
-
-Thanks for antfu's cool animations.
+I also implemented and improved this neovim mode [**neovim-porfolio**](https://github.com/albertoperdomo2/astro-vim)
+![](public/demo.gif)
 
 ## 🛠️ Stack
 
