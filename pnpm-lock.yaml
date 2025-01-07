@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.4
-        version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       '@astrojs/markdown-remark':
         specifier: ^5.1.1
         version: 5.2.0
@@ -50,9 +47,6 @@ importers:
       hotkeypad:
         specifier: 0.1.1
         version: 0.1.1
-      prettier-plugin-tailwindcss:
-        specifier: ^0.6.8
-        version: 0.6.8(prettier-plugin-astro@0.14.1)(prettier@3.3.3)
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.13
@@ -60,12 +54,18 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.2)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
       prettier-plugin-astro:
         specifier: ^0.14.1
         version: 0.14.1
+      prettier-plugin-tailwindcss:
+        specifier: ^0.6.8
+        version: 0.6.8(prettier-plugin-astro@0.14.1)(prettier@3.3.3)
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
