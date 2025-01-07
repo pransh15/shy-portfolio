@@ -10,19 +10,19 @@ import { Icon } from 'astro-icon/components'
       class='cursor-pointer'
       aria-label='Toggle dark mode'>
       <i
-        class='flex items-center gap-1 text-sm font-medium leading-6 text-skin-base transition-transform ease-in-out group-hover/theme:rotate-45'>
+        class='flex items-center gap-1 text-sm font-medium leading-6 text-skin-base transition-transform duration-300 ease-in-out group-hover/theme:rotate-45'>
         <Icon
           name='ri:moon-fill'
           class='hidden dark:block'
-          width={20}
-          height={20}
+          width={28}
+          height={28}
         />
-        <Icon name='ri:sun-fill' class='dark:hidden' width={20} height={20} />
+        <Icon name='ri:sun-fill' class='dark:hidden' width={28} height={28} />
       </i>
     </button>
     <select
       id='themeSelect'
-      class='block w-full rounded-md border-0 bg-transparent py-1.5 pl-3 pr-10 text-skin-base ring-1 ring-inset ring-skin-muted focus:ring-2 focus:ring-skin-hue sm:text-sm sm:leading-6 text-skin-hue'>
+      class='block w-full rounded-md border-0 bg-transparent py-1.5 pl-3 pr-10 ring-1 ring-inset ring-skin-muted focus:ring-2 focus:ring-skin-hue sm:text-sm sm:leading-6 text-skin-hue'>
       <option value='red'>Red</option>
       <option value='orange'>Orange</option>
       <option value='cyber'>Cyberpunk</option>
