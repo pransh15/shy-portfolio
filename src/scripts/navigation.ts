@@ -141,15 +141,8 @@ window.updateStatusBar(undefined, undefined, currentPath === '/' ? 'Landing Page
 
 function navigateUp() {
   const currentPath = window.location.pathname;
-  if (currentPath === '/') return; // Already at root
+  
+  if (currentPath === '/neovim') return; // Ya en la raíz
 
-  const pathParts = currentPath.split('/').filter(Boolean);
-  if (pathParts.length === 1) {
-    // If only one level deep, go to root
-    window.location.href = '/';
-  } else {
-    // Remove the last part of the path
-    const newPath = '/' + pathParts.slice(0, -1).join('/');
-    window.location.href = newPath;
-  }
+  history.back();
 }

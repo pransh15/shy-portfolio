@@ -8,7 +8,13 @@
       ],
       "@/*": [
         "src/*"
-      ]
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
     }
   },
   "include": ["global.d.ts", "src"]
