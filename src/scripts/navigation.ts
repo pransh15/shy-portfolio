@@ -162,21 +162,18 @@ function moveCursor(direction: 'j' | 'k' | 'h' | 'l') {
       break;
     case 'h':
       if (cursorPosition.x > 1) {
-        cursorPosition.x -= cursorStep;
+        cursorPosition.x -= cursorStep/2;
       }
       break;
     case 'l':
       if (cursorPosition.x < 100) {
-        cursorPosition.x += cursorStep;
+        cursorPosition.x += cursorStep/2;
       }
       break;
     default:
       console.log('Invalid direction');
   }
 }
-
-const currentPath = window.location.pathname;
-window.updateStatusBar(undefined, undefined, currentPath === '/' ? 'Landing Page' : currentPath.slice(1));
 
 function navigateUp() {
   const currentPath = window.location.pathname;

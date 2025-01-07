@@ -1,39 +1,141 @@
 ---
 import Layout from '@layouts/Neovim.astro';
+import { basics } from '@cv'
+import { work } from '@cv'
+import {Icon} from "astro-icon/components";
+
+
+const { name, label, location, profiles, email, summary } = basics
+const { city, region, address } = location
 ---
 
 <Layout title="About">
-  <div class="flex flex-col items-center justify-center h-full">
-    <h1 class="text-4xl font-bold mb-8 text-nvim-blue">About</h1>
-    <div class="text-center">
-      <p class="mb-4">version 0.0.1</p>
-      <div class="flex flex-col text-left justify-left p-10">
-        <p class="p-4">
-            Welcome to our Astro template landing page, inspired by the legendary Vim console. 
-            This template is designed for developers who understand that Vim is not just a text editor, but a way of life.
-        </p>
-        <p class="p-4">
-            Our landing page harnesses the power of Vim’s efficient and minimalist design, bringing the speed and functionality 
-            of the console to the web. With support for key bindings, you can navigate and interact with the page just as you 
-            would in your favorite editor.
-        </p>
-        <p class="p-4">
-            <a class="font-bold italic">Why Vim?</a>
-            Vim is renowned for its unparalleled efficiency and control, allowing developers to perform complex text manipulations 
-            with just a few keystrokes. It's a tool that, once mastered, transforms the coding experience, making it faster and 
-            more enjoyable.
-        </p>
-        <p class="p-4">
-            Experience the future of landing pages with our Vim-inspired design, where every interaction is swift, intuitive, and 
-            satisfying. Whether you're a seasoned Vim user or new to this powerful editor, our template will enhance your web development 
-            process, making every moment on your site as productive as possible.
-        </p>
-        <p class="p-4">
-            Join us on this journey to redefine web navigation and interaction with the timeless efficiency of Vim. Embrace the best text 
-            editor’s philosophy and see how it revolutionizes the way you build and use web pages. Welcome to a new era of web development 
-            with the Astro.build Vim-inspired landing page.
-        </p>
+  <div class="flex flex-col items-center justify-center h-full mt-[8%]">
+    <h1 class="text-4xl font-bold mb-2 text-nvim-blue">About</h1>
+    <div class="text-center w-1/2 h-full">
+      <p class="mb-4 text-sm">version 0.0.1</p>
+      <div class="flex flex-col text-left justify-left p-10 prose-invert min-h-max">
+        <span class="text-xs text-skin-muted">[me].jpg</span>
+        <h1 class="text-2xl">{name}</h1>
+        <h2 class="text-sm text-nvim-green">{label}</h2>
+        <div class="flex items
+        -center gap-2 pt-1 text-sm text-skin-muted">
+          {address}, {city}, {region}.
+        </div>
+        
+        <div class="mb-2">
+          <p class="font-mono opacity-75 font-semibold">
+            {summary}
+          </p>
+        </div>
+        
+        <footer class='flex flex-col gap-1'>
+          {
+            email && (
+              <a
+                href={`mailto:${email}`}
+                title='Send me an email'
+                target='_blank'
+                rel='noopener noreferrer'
+                class='group'>
+                <span class="text-nvim-blue transition ease-linear group-hover:-translate-y-0.5 group-hover:text-skin-hue"> > </span>
+                <span>〔Email〕{email}</span>
+              </a>
+            )
+          }
+          {
+            profiles.map(({ network, url}) => {
+              return (
+                <a
+                  href={url}
+                  title={`Visit ${name} profile on ${network}`}
+                  aria-label={`Visit ${name} profile on ${network}`}
+                  target='_blank'
+                  class='group'
+                  rel='noopener noreferrer'>
+                  <span class="text-nvim-blue ease-linear group-hover:text-skin-hue transform transition-all group-hover:font-bold"> > </span>
+                  <span >〔{network}〕</span>
+                </a>
+              )
+            })
+          }
+        </footer>
+        
+        <span class="mb-2">---------------------------------------------------</span>
+        
+        <div class="min-h-max">
+          {
+            work && work.map(({ name, location, location_type, summary, responsibilities, achievements }) => {
+              return (
+                <div class="mb-4">
+                  <h3 class="text-lg font-bold text-nvim-blue">{name}</h3>
+                  {(location || location_type) && (
+                    <div class="text-xs text-skin-muted">
+                      {location} {location && location_type && '-'} {location_type}
+                    </div>
+                  )}
+                  <div class="mt-4 flex flex-col gap-4 text-sm">
+                    {summary && (
+                      <div class="flex flex-col gap-1">
+                        <h4 class="text-nvim-green">Summary:</h4>
+                        <ul class="text-skin-muted [&>li]:ml-4 flex list-decimal flex-col gap-2">
+                          {Array.isArray(summary) ? (
+                            summary.map(item => (
+                              <li>{item}</li>
+                            ))
+                          ) : (
+                            <li>{summary}</li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                    
+                    {(responsibilities || achievements) &&  (
+                      <div class="flex relative flex-col h-16  duration-200 ease-out">
+                      {responsibilities && (
+                        <div class="flex flex-col gap-1">
+                          <h4 class="text-nvim-green">Responsibilities:</h4>
+                          <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
+                            {responsibilities.map(responsibility => (
+                              <li>{responsibility}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      
+                      {achievements && (
+                        <div class="flex flex-col gap-1">
+                          <h4 class="text-nvim-green">Achievements:</h4>
+                          <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
+                            {achievements.map(achievement => (
+                              <li>{achievement}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )
+            })
+          }
+        </div>
+        
       </div>
     </div>
   </div>
 </Layout>
+
+<script>
+  const expandButton = document.querySelectorAll('.expand-button');
+  
+  expandButton.forEach(button => {
+    button.addEventListener('click', () => {
+      const container = button.closest<HTMLElement>('.expand-container')!;
+      container.dataset.expanded = container.dataset.expanded === 'true' ? 'false' : 'true';
+      const expandText = button.querySelector('.expand-text')!;
+      expandText.innerHTML = container.dataset.expanded === 'true' ? 'SHOW LESS' : 'SHOW MORE'
+    });
+  });
+</script>
