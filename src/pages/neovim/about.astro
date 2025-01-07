@@ -126,16 +126,3 @@ const { city, region, address } = location
     </div>
   </div>
 </Layout>
-
-<script>
-  const expandButton = document.querySelectorAll('.expand-button');
-  
-  expandButton.forEach(button => {
-    button.addEventListener('click', () => {
-      const container = button.closest<HTMLElement>('.expand-container')!;
-      container.dataset.expanded = container.dataset.expanded === 'true' ? 'false' : 'true';
-      const expandText = button.querySelector('.expand-text')!;
-      expandText.innerHTML = container.dataset.expanded === 'true' ? 'SHOW LESS' : 'SHOW MORE'
-    });
-  });
-</script>
