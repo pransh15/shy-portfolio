@@ -9,6 +9,7 @@ const emailDomain = rawEmail.split('@')[1].split('.')[0];
 const emailExtension = rawEmail.split('@')[1].split('.')[1];
 
 const parsedProfiles = profiles.map(({url}) => {
+  const rawUrl = url;
   
   if (url.includes('https://')) {
     url = url.split('https://')[1];
@@ -22,7 +23,7 @@ const parsedProfiles = profiles.map(({url}) => {
   const extension = url.split('.')[1].split('/')[0];
   const params: Array<string> = url.split('.')[1].split('/').slice(1);
   
-  return {domain, extension, params};
+  return {url: rawUrl, domain, extension, params};
 });
 ---
 
@@ -39,8 +40,8 @@ const parsedProfiles = profiles.map(({url}) => {
       </a>
       
       <!-- Contacts render -->
-      {parsedProfiles && parsedProfiles.map(({ domain, extension, params }) => (
-        <a>
+      {parsedProfiles && parsedProfiles.map(({ url, domain, extension, params }) => (
+        <a href={url}>
           {domain}<span class='symbol'>[dot]</span>{extension}<span class='symbol'>[slash]</span>{
             params.map((param, index) => (
               <span>{param}{index < params.length - 1 ? <span class='symbol'>[slash]</span> : ''}</span>
