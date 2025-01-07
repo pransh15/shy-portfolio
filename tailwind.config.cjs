@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -7,11 +8,23 @@ function withOpacity(variableName) {
   };
 }
 
-export default {
+module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      colors: {
+        'nvim-bg': '#1c1c1c',
+        'nvim-fg': '#d0d0d0',
+        'nvim-gray': '#4e4e4e',
+        'nvim-blue': '#5fafd7',
+        'nvim-green': '#87d787',
+        'nvim-statusline': '#303030',
+        skin: {
+          hue: withOpacity("--color"),
+          muted: withOpacity("--muted"),
+        },
+      },
       textColor: {
         skin: {
           base: withOpacity("--color-text-base"),
@@ -27,12 +40,6 @@ export default {
           "button-muted": withOpacity("--color-button-muted"),
         },
       },
-      colors: {
-        skin: {
-          hue: withOpacity("--color"),
-          muted: withOpacity("--muted"),
-        },
-      },
       ringColor: {
         skin: {
           fill: withOpacity("--color-fill"),
@@ -43,10 +50,13 @@ export default {
           hue: withOpacity("--color-fill"),
         },
       },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
+      },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

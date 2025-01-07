@@ -1,0 +1,74 @@
+---
+import Layout from '@/layouts/Neovim.astro';
+import { projects } from "@cv";
+import { Icon } from "astro-icon/components";
+
+---
+
+<Layout title="Projects">
+  <ul id="project-list">
+    {projects && projects.map(({ url, description, highlights, name, isActive, github, stack}, index) => (
+      <li class="mb-8 project-item" data-index={index}>
+        <a href={`neovim/project/${url}`} class="text-nvim-blue hover:underline font-semibold">
+          {name}
+        </a>
+        <div>
+          {highlights.map((highlight) => {
+            return <span class="text-gray-600">{highlight.slice(2)}. </span>;
+          })}
+        </div>
+        <p class="text-gray-500">
+          {description}
+        </p>
+        
+        <ul class="flex print:hidden flex-wrap gap-2 mt-4" aria-label="Technologies used">
+          {stack && Object.entries(stack).map(([label, icon]) => (
+            <li class=" cursor-default gap-2 bg-transparent border-skin-hue/60 text-skin-hue flex items-center border-solid border rounded-md px-2 py-1 text-xs backdrop-blur-sm">
+              {icon && <Icon name={icon} width={16} height={16} />} <span>{label}</span>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ul>
+</Layout>
+
+<style>
+  .project-item.active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<script>
+  let currentIndex = 0;
+  const projectItems = document.querySelectorAll('.project-item');
+  
+
+  function moveCursor(direction: any) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = projectItems.length - 1;
+    if (currentIndex >= projectItems.length) currentIndex = 0;
+  }
+
+  function enterProjectPost() {
+    const activeItem = document.querySelector('.project-item.active');
+    if (activeItem) {
+      window.location.href = activeItem.getAttribute('data-href') ?? "";
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    switch(e.key) {
+      case 'j':
+        moveCursor(1);
+        break;
+      case 'k':
+        moveCursor(-1);
+        break;
+      case 'Enter':
+        enterProjectPost();
+        break;
+    }
+  });
+  
+</script>

@@ -2,6 +2,8 @@
 import Section from '../Section.astro'
 import { work } from '@cv'
 import { Icon } from 'astro-icon/components'
+
+const millisecondsInYear = 1000 * 60 * 60 * 24 * 365
 ---
 
 <Section className={Astro.props.className} title="Experience">
@@ -9,17 +11,22 @@ import { Icon } from 'astro-icon/components'
     {work.map(({ name, startDate, endDate, position, summary, responsibilities, achievements, url, skills, location, location_type }) => {
       const startYear = new Date(startDate).getFullYear()
       const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present"
-
+      const timeLapse = new Date().getTime() - new Date(startDate).getTime()
+      const workedYears = Math.floor(+timeLapse/millisecondsInYear)
+      const workedMonths = Math.floor((+timeLapse % millisecondsInYear) / (millisecondsInYear / 12))
+      const workedTime = `${workedYears}y : ${workedMonths}m`
+      const workedDatetime = `P${workedYears}Y${workedMonths}M`
       return (
         <li class="relative print:py-2">
           <div data-expanded="false" class="group relative grid pb-1 print:pb-0 transition-all print:grid-cols-1 print:gap-1 sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 expand-container">
-            <header class="relative mt-1 text-xs font-semibold sm:col-span-2">
+            <div class="relative mt-1 text-xs font-semibold sm:col-span-2">
               <time datetime={startDate} data-title={startDate}>{startYear}</time> - <time datetime={endDate} data-title={endDate}>{endYear}</time>
-            </header>
+              <time datetime={workedDatetime} data-title={workedDatetime} class="flex mt-1 text-skin-hue">{workedTime}</time>
+            </div>
             <div class="relative flex flex-col pb-6 print:pb-0 before:-ml-6 sm:col-span-10 before:w-px print:before:hidden before:absolute before:bg-skin-muted before:h-full before:mt-2">
             <div class="absolute w-2 h-2 bg-skin-muted rounded-full mt-2 -translate-x-[1.71rem] ring print:hidden ring-skin-fill"></div>
               <h3>
-                <div class="inline-flex items-center text-lg print:text-base leading-tight group/link focus-visible:text-amber-500" aria-label="{position} - {company}">
+                <span class="inline-flex items-center text-lg print:text-base leading-tight group/link focus-visible:text-amber-500" aria-label="{position} - {company}">
                   <span>{position} <span>@</span>
                   {url ? (
                     <a class="text-skin-hue" href={url} title={`Ver ${name}`} target="_blank">{name}</a>
@@ -33,7 +40,7 @@ import { Icon } from 'astro-icon/components'
                     </span>
                   }
                   </span>
-                </div>
+                </span>
               </h3>
               {(location || location_type) && (
                 <div class="text-xs text-skin-muted">

@@ -11,6 +11,7 @@ import ThemeSwitch from "@/components/ThemeSwitch.astro";
 
 import CV, { basics } from "@cv";
 import Education from "@/components/sections/Education.astro";
+import NeovimButton from "../components/NeovimButton.astro";
 const { name, label } = basics;
 
 enum PageLayout {
@@ -22,7 +23,7 @@ enum PageLayout {
 
 <Layout title={`${name}'s' Portfolio - ${label}`}>
   <main
-    class="relative grid h-full max-w-7xl gap-12 p-8 max-sm:py-16 md:min-h-screen md:grid-cols-6 md:p-16 xl:gap-24 print:max-w-none print:grid-cols-1 print:gap-6"
+    class="relative grid h-full max-w-7xl gap-12 p-8 max-sm:py-16 md:min-h-screen md:grid-cols-6 md:p-16 xl:gap-24 print:max-w-none print:grid-cols-1 print:gap-6 text-skin-base"
   >
     <div
       class="slide-enter space-y-6 ease-in md:col-span-2 print:col-span-1 print:grid print:grid-cols-2 print:gap-5 print:space-y-0"
@@ -30,6 +31,7 @@ enum PageLayout {
       <Hero />
       <About />
       <ThemeSwitch />
+      <NeovimButton />
     </div>
     <div
       class="slide-enter-content space-y-12 md:col-span-4 print:col-span-1 print:grid print:grid-cols-4 print:gap-2 print:space-y-0"
@@ -151,7 +153,6 @@ enum PageLayout {
   * {
     scrollbar-color: var(--color-button-muted) var(--color-fill);
   }
-
   @page {
     size: auto;
     margin: 0mm;

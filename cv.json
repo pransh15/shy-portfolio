@@ -7,7 +7,7 @@
     "image": "/avatar.png",
     "email": "falconyumn@gmail.com",
     "url": "https://www.linkedin.com/in/arielfalcon/",
-    "summary": "Front-end developer, at the moment. I work on Typescript with Angular and Vue; with HTML5 and SCSS. I'm interested in Back-end Development, Cloud Computing and DevOps.",
+    "summary": "Front-end developer, at the moment. I work on Angular and Vue with Typescript / HTML5 / SCSS. I'm interested in Back-end Development, Cloud Computing and DevOps.",
     "theme": "red",
     "location": {
       "address": "Alcalá de Henares",
@@ -171,7 +171,7 @@
     {
       "name": "JavaScript",
       "icon": "simple-icons:javascript",
-      "level": "Expert",
+      "level": "Advanced",
       "keywords": [
         "Web Development",
         "Frontend",
@@ -182,7 +182,7 @@
     {
       "name": "TypeScript",
       "icon": "simple-icons:typescript",
-      "level": "Expert",
+      "level": "Advanced",
       "keywords": [
         "Web Development",
         "Frontend",
@@ -280,7 +280,7 @@
     {
       "name": "GitHub",
       "icon": "mdi:github",
-      "level": "Expert",
+      "level": "Advanced",
       "keywords": [
         "Version Control",
         "Collaboration",
@@ -384,9 +384,9 @@
     {
       "name": "CV Matching System",
       "isActive": true,
-      "description": "An private AI-driven CV matching system, which can help you find the most suitable job. Automates the recruitment process and matches candidates with the most suitable job.",
+      "description": "A propiertary code AI-driven CV matching system to connect the offer and the best candidates. Automates the recruitment process.",
       "highlights": [
-        "🎯 Tailored job recommendations, creating a personalized job search experience",
+        "🎯 Tailored job opportunities",
         "✨ AI-driven complex workflows ",
         "🚀 80% increase in productivity"
       ],
