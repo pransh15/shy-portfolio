@@ -103,11 +103,10 @@ function handleNormalModeKey(key: string) {
       navigateUp();
       break;
     case 'j':
-      window.scrollBy(0, 30);
-      updatePosition();
-      break;
     case 'k':
-      window.scrollBy(0, -30);
+    case 'h':
+    case 'l':
+      moveCursor(key)
       updatePosition();
       break;
     case 'g':
@@ -129,13 +128,52 @@ function handleNormalModeKey(key: string) {
   }
 }
 
+let cursor = document.getElementById('cursor');
 function updatePosition() {
-  const scrollPercentage = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-  window.updateStatusBar(undefined, undefined, undefined, `${scrollPercentage}%`);
+  window.updateStatusBar(undefined, undefined, undefined, `${Math.floor(cursorPosition.y) || 1}:${Math.floor(cursorPosition.x) || 1}`);
+  
+  if (cursor) {
+    cursor.style.top = `${cursorPosition.y}vh`;
+    cursor.style.left = `${cursorPosition.x}vw`;
+  } else {
+    cursor = document.getElementById('cursor');
+  }
 }
 
-updatePosition();
-window.addEventListener('scroll', updatePosition);
+let cursorPosition = {
+  'x': 1,
+  'y': 0.5,
+}
+const cursorStep = 1.8;
+
+function moveCursor(direction: 'j' | 'k' | 'h' | 'l') {
+  switch (direction) {
+    case 'k':
+      if (cursorPosition.y > 0.5 && (cursorPosition.y - Math.round(cursorStep) > 0.5)) {
+        cursorPosition.y -= cursorStep;
+      } else {
+        cursorPosition.y = 0.5;
+      }
+      break;
+    case 'j':
+      if (cursorPosition.y < 100) {
+        cursorPosition.y += cursorStep;
+      }
+      break;
+    case 'h':
+      if (cursorPosition.x > 1) {
+        cursorPosition.x -= cursorStep;
+      }
+      break;
+    case 'l':
+      if (cursorPosition.x < 100) {
+        cursorPosition.x += cursorStep;
+      }
+      break;
+    default:
+      console.log('Invalid direction');
+  }
+}
 
 const currentPath = window.location.pathname;
 window.updateStatusBar(undefined, undefined, currentPath === '/' ? 'Landing Page' : currentPath.slice(1));
