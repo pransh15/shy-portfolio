@@ -34,7 +34,7 @@ import { projects } from "@cv";
                         </span>
                       </a>
                     ) : (
-                      <span>{name}</span>
+                      <span class="text-lg">{name}</span>
                     )}
                   </div>
                 </div>
@@ -53,10 +53,10 @@ import { projects } from "@cv";
                 )}
               </div>
 
-              <p class={`relative z-10 py-3 text-sm text-skin-base`}>
+              <p class='relative z-10 py-3 text-sm text-skin-base'>
                 {description}
               </p>
-              <ul class={`relative z-10 mt-1 text-sm text-skin-inverted`}>
+              <ul class='relative z-10 mt-1 text-sm'>
                 {highlights.map((highlight) => {
                   return <li>{highlight}</li>;
                 })}
@@ -89,7 +89,7 @@ import { projects } from "@cv";
   ul {
     @apply ml-4 list-disc space-y-1;
     li {
-      @apply text-skin-muted;
+      @apply text-skin-muted marker:text-skin-hue;
     }
   }
 
