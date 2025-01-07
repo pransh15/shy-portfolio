@@ -28,6 +28,7 @@ document.addEventListener('keydown', (e: KeyboardEvent) => {
       break;
     case 'Escape':
       handleEscape();
+      window.clearSearch()
       break;
     case 'Enter':
       if (currentMode === 'COMMAND' || currentMode === 'SEARCH') {

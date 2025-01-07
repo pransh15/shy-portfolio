@@ -46,7 +46,8 @@ function highlightSearchResults(searchTerm: string): void {
         parts.forEach((part: string) => {
           if (part.match(new RegExp(searchTerm, 'gi'))) {
             // Wrap matched part with a <mark> tag
-            const mark: HTMLMarkElement = document.createElement('mark');
+            // @ts-ignore
+            const mark: HTMLMarkEunklement = document.createElement('mark');
             mark.className = 'highlight';
             mark.textContent = part;
             fragment.appendChild(mark);
@@ -92,6 +93,7 @@ function clearSearchResults(): void {
       // Safely remove the <mark> tag and keep the text content
       const parent: Node | null = el.parentNode;
       if (parent && el.outerHTML) {
+        // @ts-ignore
         parent.innerHTML = parent.innerHTML.replace(el.outerHTML, el.innerText);
       }
     });
@@ -100,5 +102,28 @@ function clearSearchResults(): void {
   }
 }
 
-// Expose the performSearch function globally for access
+function clearSearch(): void {
+  // Ensure the document body is available
+  if (document.body) {
+    // Find all elements with the 'highlight' class
+    const highlightedElements: NodeListOf<HTMLElement> = document.querySelectorAll('.highlight');
+    
+    // Iterate over each highlighted element and remove the 'highlight' class
+    highlightedElements.forEach((element: HTMLElement) => {
+      // Create a new <span> element
+      const span = document.createElement('span');
+      
+      // Copy the inner HTML (text content) of the current element into the <span>
+      span.innerHTML = element.innerHTML;
+      
+      // Replace the element with the new <span>
+      element.parentNode?.replaceChild(span, element);
+    });
+  } else {
+    console.log('Error: document body is not available.');
+  }
+}
+
+// Expose the functions globally
 window.performSearch = performSearch;
+window.clearSearch = clearSearch;
