@@ -48,6 +48,3 @@ jobs:
       # 7. Deploy
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
-        with:
-          branch: main
-          folder: dist
