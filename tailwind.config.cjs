@@ -24,6 +24,10 @@ module.exports = {
           hue: withOpacity("--color"),
           muted: withOpacity("--muted"),
         },
+        nvim: {
+          blue: withOpacity("--color-nvim-blue"),
+          green: withOpacity("--color-nvim-green"),
+        }
       },
       textColor: {
         skin: {
@@ -31,6 +35,10 @@ module.exports = {
           muted: withOpacity("--color-text-muted"),
           inverted: withOpacity("--color-text-inverted"),
         },
+        nvim: {
+          green: withOpacity("--color-nvim-green"),
+          blue: withOpacity("--color-nvim-blue"),
+        }
       },
       backgroundColor: {
         skin: {

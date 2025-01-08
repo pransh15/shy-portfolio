@@ -27,5 +27,7 @@ export default defineConfig({
     })
   ],
   output: "hybrid",
-  adapter: vercel()
+  adapter: vercel(),
+  outDir: "./docs",
+  site: "https://arielfalcon.me",
 });

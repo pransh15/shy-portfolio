@@ -1,0 +1,46 @@
+name: Deploy Astro to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Cambia "main" si tu rama principal tiene otro nombre
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Configurar el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. Configurar Node.js y pnpm
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Usa la versión de Node.js que prefieras
+          cache: 'pnpm' # Cambia 'npm' por 'pnpm'
+
+      # 3. Instalar pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 4. Instalar dependencias usando pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      # 3. Instalar dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Compilar el proyecto Astro
+      - name: Build Astro
+        run: npm run build
+
+      # 5. Deploy en GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
