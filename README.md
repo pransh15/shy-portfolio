@@ -1,6 +1,6 @@
 ## Print-friendly portfolio CV
 
-<p>
+<p align = "center">
     <img src="public/astro-vim.png" alt="logo" width="200"/>
 </p>
 
