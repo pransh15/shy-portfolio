@@ -20,12 +20,14 @@ let cursorPosition = {
   'x': windowSize.vw,
   'y': windowSize.vh,
 }
-let currentLine = -1;
+let currentLine = 0;
 let currentPageItems: NodeListOf<Element> = document.querySelectorAll('.nvim-line');
 
+const firstItem = currentPageItems[0].getBoundingClientRect();
+
 if (cursor) {
-  cursor.style.top = `${cursorPosition.y}px`;
-  cursor.style.left = `${cursorPosition.x}px `;
+  cursor.style.top = `${firstItem.y}px`;
+  cursor.style.left = `${firstItem.x - 18}px `;
 }
 
 document.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -158,10 +160,6 @@ function updatePosition() {
     cursor = document.getElementById('cursor');
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  currentPageItems = document.querySelectorAll('.nvim-line');
-})
 
 function moveCursor(direction: 'j' | 'k') {
   switch (direction) {
