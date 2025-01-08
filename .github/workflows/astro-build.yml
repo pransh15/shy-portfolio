@@ -23,16 +23,28 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'npm'
 
-      # 3. Install dependencies
+      # 3. Install pnpm globally
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 4. Cache pnpm dependencies
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      # 5. Install dependencies with pnpm
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
-      # 4. Compile Astro
+      # 6. Compile Astro
       - name: Build Astro
-        run: npm run build
+        run: pnpm run build
 
-      # 5. Deploy
+      # 7. Deploy
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
