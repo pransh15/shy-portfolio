@@ -1,10 +1,3 @@
-interface StatusBar {
-  mode: HTMLElement;
-  commandLine: HTMLElement;
-  fileInfo: HTMLElement;
-  position: HTMLElement;
-}
-
 let cursor = document.getElementById('cursor');
 let currentMode = 'NORMAL';
 let commandBuffer = '';
@@ -18,10 +11,6 @@ let cursorPosition = {
   'x': windowSize.vw,
   'y': windowSize.vh,
 }
-const cursorStep = {
-  'x': windowSize.vw ,
-  'y': windowSize.vh,
-};
 let currentLine = -1;
 let currentPageItems = document.querySelectorAll('.nvim-line');
 
@@ -121,18 +110,13 @@ function handleNormalModeKey(key: string) {
       break;
     case 'j':
     case 'k':
-    case 'h':
-    case 'l':
       moveCursor(key)
-      updatePosition();
       break;
     case 'g':
-      window.scrollTo(0, 0);
-      updatePosition();
+      moveCursorTop()
       break;
     case 'G':
-      window.scrollTo(0, document.body.scrollHeight);
-      updatePosition();
+      moveCursorBottom();
       break;
     case 'i':
       currentMode = 'INSERT';
@@ -143,10 +127,12 @@ function handleNormalModeKey(key: string) {
       window.updateStatusBar(currentMode);
       break;
   }
+  
+  updatePosition();
 }
 
 function updatePosition() {
-  window.updateStatusBar(undefined, undefined, undefined, `${Math.floor(cursorPosition.y) || 1}:${Math.floor(cursorPosition.x) || 1}`);
+  window.updateStatusBar(undefined, undefined, undefined, `${Math.floor(cursorPosition.y / 100) || 1}:${Math.floor(cursorPosition.x) || 1}`);
   
   if (cursor) {
     cursor.style.top = `${cursorPosition.y}px`;
@@ -161,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('Loaded', currentPageItems.length, 'items');
 })
 
-function moveCursor(direction: 'j' | 'k' | 'h' | 'l') {
+function moveCursor(direction: 'j' | 'k') {
   switch (direction) {
     case 'k':
       if (currentLine > 0) {
@@ -173,28 +159,24 @@ function moveCursor(direction: 'j' | 'k' | 'h' | 'l') {
         currentLine++;
       }
       break;
-    case 'h':
-      if ((cursorPosition.x > windowSize.vw) && (cursorPosition.x - Math.round(cursorStep.x) > windowSize.vw)) {
-        cursorPosition.x -= cursorStep.x;
-      } else {
-        cursorPosition.x = windowSize.vw;
-      }
-      break;
-    case 'l':
-      if (cursorPosition.x < windowSize.width - 4) {
-        cursorPosition.x += cursorStep.x;
-      }
-      break;
     default:
       console.log('Invalid direction');
   }
   
-  // Solo calculamos las nuevas posiciones después de actualizar la línea
   const { y: screenVerticalPosition, x: screenHorizontalPosition } = currentPageItems[currentLine].getBoundingClientRect();
   
-  // Actualizamos la posición del cursor
   cursorPosition.y = screenVerticalPosition;
   cursorPosition.x = screenHorizontalPosition - 12;
+}
+
+function moveCursorTop() {
+  currentLine = 0;
+  moveCursor('k');
+}
+
+function moveCursorBottom() {
+  currentLine = currentPageItems.length - 1;
+  moveCursor('j');
 }
 
 function navigateUp() {
