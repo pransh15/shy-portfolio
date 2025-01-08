@@ -33,14 +33,14 @@ Modify the `cv.json` file to create your own printable Portfolio/CV.
 
 # Initialize the project
 ```bash
-pnpm create astro@latest --template MiraHikari/portfolio
+pnpm create astro@latest --template ArielFalcon/portfolio
 ```
 
 ### 1-1. Clone the repo
 If you don't want to use the template command, you can clone this repo and install the dependencies.
 
 ```bash
-git clone https://github.com/MiraHikari/portfolio.git
+git clone https://github.com/ArielFalcon/portfolio.git
 cd portfolio
 pnpm install
 ```
