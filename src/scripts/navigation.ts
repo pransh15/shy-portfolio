@@ -6,9 +6,10 @@ enum EMode {
   SEARCH = 'SEARCH',
 }
 
-let cursor = document.getElementById('cursor');
+let cursor: HTMLElement | null = document.getElementById('cursor');
 let currentMode: EMode = EMode.NORMAL;
 let commandBuffer = '';
+
 const windowSize = {
   'width': window.innerWidth,
   'height': window.innerHeight,
@@ -19,8 +20,9 @@ let cursorPosition = {
   'x': windowSize.vw,
   'y': windowSize.vh,
 }
-let currentLine = 0;
-let currentPageItems = document.querySelectorAll('.nvim-line');
+let currentLine = -1;
+let currentPageItems: NodeListOf<Element> = document.querySelectorAll('.nvim-line');
+
 if (cursor) {
   cursor.style.top = `${cursorPosition.y}px`;
   cursor.style.left = `${cursorPosition.x}px `;
@@ -178,9 +180,8 @@ function moveCursor(direction: 'j' | 'k') {
   }
   
   const { y: screenVerticalPosition, x: screenHorizontalPosition } = currentPageItems[currentLine].getBoundingClientRect();
-  
   cursorPosition.y = screenVerticalPosition;
-  cursorPosition.x = screenHorizontalPosition - 12;
+  cursorPosition.x = screenHorizontalPosition - 18;
 }
 
 function moveCursorTop() {
