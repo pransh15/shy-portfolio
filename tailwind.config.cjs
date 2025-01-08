@@ -17,8 +17,8 @@ module.exports = {
         'nvim-bg': '#1c1c1c',
         'nvim-fg': '#d0d0d0',
         'nvim-gray': '#4e4e4e',
-        'nvim-blue': '#5fafd7',
-        'nvim-green': '#87d787',
+        'blue': '#5fafd7',
+        'green': '#87d787',
         'nvim-statusline': '#303030',
         skin: {
           hue: withOpacity("--color"),

@@ -12,7 +12,7 @@ import ThemeSwitch from "@/components/ThemeSwitch.astro";
 import CV, { basics } from "@cv";
 import Education from "@/components/sections/Education.astro";
 import NeovimButton from "../components/neovim/Button.astro";
-const { name, label } = basics;
+const { name } = basics;
 
 enum PageLayout {
   SingleColumn = "single-column",
@@ -84,61 +84,6 @@ enum PageLayout {
   <KeyboardManager />
 </Layout>
 
-<script>
-  const carousel = document.querySelector("#carousel");
-
-  if (carousel) {
-    let isScrolling = true;
-    let scrollSpeed = 2;
-    let direction = 1;
-    let pauseTimeout: NodeJS.Timeout;
-
-    const startAutoScroll = () => {
-      const scroll = () => {
-        if (!isScrolling) return;
-
-        if (
-          //@ts-ignore
-          carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth ||
-          carousel.scrollLeft <= 0
-        ) {
-          direction *= -1;
-          isScrolling = false;
-          clearTimeout(pauseTimeout);
-          pauseTimeout = setTimeout(() => {
-            isScrolling = true;
-            requestAnimationFrame(scroll);
-          }, 1000);
-        }
-
-        carousel.scrollLeft += scrollSpeed * direction;
-        requestAnimationFrame(scroll);
-      };
-
-      requestAnimationFrame(scroll);
-    };
-
-    const stopAutoScroll = () => {
-      isScrolling = false;
-    };
-
-    const handleUserInteraction = () => {
-      stopAutoScroll();
-      setTimeout(() => {
-        isScrolling = true;
-      }, 500);
-    };
-
-    startAutoScroll();
-
-    carousel.addEventListener("mousedown", handleUserInteraction);
-    carousel.addEventListener("wheel", handleUserInteraction);
-    carousel.addEventListener("touchstart", handleUserInteraction);
-  } else {
-    console.log('Not in Scroll mode')
-  }
-</script>
-
 <style>
   .scrollbar-thin::-webkit-scrollbar {
     height: 8px;
@@ -155,7 +100,7 @@ enum PageLayout {
   }
   @page {
     size: auto;
-    margin: 0mm;
+    margin: 0;
   }
   main {
     margin: auto;
@@ -178,7 +123,7 @@ enum PageLayout {
     .slide-enter,
     .slide-enter-content > *:not(:has(.table-of-contents)) {
       --enter-stage: 0;
-      --enter-step: 400ms;
+      --enter-step: 150ms;
       --enter-initial: 0ms;
       animation: slide-enter 1s both 1;
       animation-delay: calc(

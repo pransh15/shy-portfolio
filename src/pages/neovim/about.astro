@@ -2,7 +2,6 @@
 import Layout from '@layouts/Neovim.astro';
 import { basics } from '@cv'
 import { work } from '@cv'
-import {Icon} from "astro-icon/components";
 
 
 const { name, label, location, profiles, email, summary } = basics
@@ -11,13 +10,13 @@ const { city, region, address } = location
 
 <Layout title="About">
   <div class="flex flex-col items-center justify-center h-full mt-[8%]">
-    <h1 class="text-4xl font-bold mb-2 text-nvim-blue">About</h1>
+    <h1 class="text-4xl font-bold mb-2 text-blue">About</h1>
     <div class="text-center w-1/2 h-full">
       <p class="mb-4 text-sm">version 0.0.1</p>
       <div class="flex flex-col text-left justify-left p-10 prose-invert min-h-max">
         <span class="text-xs text-skin-muted">[me].jpg</span>
         <h1 class="text-2xl">{name}</h1>
-        <h2 class="text-sm text-nvim-green">{label}</h2>
+        <h2 class="text-sm text-green">{label}</h2>
         <div class="flex items
         -center gap-2 pt-1 text-sm text-skin-muted">
           {address}, {city}, {region}.
@@ -38,7 +37,7 @@ const { city, region, address } = location
                 target='_blank'
                 rel='noopener noreferrer'
                 class='group'>
-                <span class="text-nvim-blue transition ease-linear group-hover:-translate-y-0.5 group-hover:text-skin-hue"> > </span>
+                <span class="text-blue transition ease-linear group-hover:-translate-y-0.5 group-hover:text-skin-hue"> > </span>
                 <span>〔Email〕{email}</span>
               </a>
             )
@@ -53,7 +52,7 @@ const { city, region, address } = location
                   target='_blank'
                   class='group'
                   rel='noopener noreferrer'>
-                  <span class="text-nvim-blue ease-linear group-hover:text-skin-hue transform transition-all group-hover:font-bold"> > </span>
+                  <span class="text-blue ease-linear group-hover:text-skin-hue transform transition-all group-hover:font-bold"> > </span>
                   <span >〔{network}〕</span>
                 </a>
               )
@@ -68,7 +67,7 @@ const { city, region, address } = location
             work && work.map(({ name, location, location_type, summary, responsibilities, achievements }) => {
               return (
                 <div class="mb-4">
-                  <h3 class="text-lg font-bold text-nvim-blue">{name}</h3>
+                  <h3 class="text-lg font-bold text-blue">{name}</h3>
                   {(location || location_type) && (
                     <div class="text-xs text-skin-muted">
                       {location} {location && location_type && '-'} {location_type}
@@ -77,7 +76,7 @@ const { city, region, address } = location
                   <div class="mt-4 flex flex-col gap-4 text-sm">
                     {summary && (
                       <div class="flex flex-col gap-1">
-                        <h4 class="text-nvim-green">Summary:</h4>
+                        <h4 class="text-green">Summary:</h4>
                         <ul class="text-skin-muted [&>li]:ml-4 flex list-decimal flex-col gap-2">
                           {Array.isArray(summary) ? (
                             summary.map(item => (
@@ -94,7 +93,7 @@ const { city, region, address } = location
                       <div class="flex relative flex-col h-16  duration-200 ease-out">
                       {responsibilities && (
                         <div class="flex flex-col gap-1">
-                          <h4 class="text-nvim-green">Responsibilities:</h4>
+                          <h4 class="text-green">Responsibilities:</h4>
                           <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
                             {responsibilities.map(responsibility => (
                               <li>{responsibility}</li>
@@ -105,7 +104,7 @@ const { city, region, address } = location
                       
                       {achievements && (
                         <div class="flex flex-col gap-1">
-                          <h4 class="text-nvim-green">Achievements:</h4>
+                          <h4 class="text-green">Achievements:</h4>
                           <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
                             {achievements.map(achievement => (
                               <li>{achievement}</li>

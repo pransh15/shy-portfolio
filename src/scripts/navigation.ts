@@ -5,14 +5,30 @@ interface StatusBar {
   position: HTMLElement;
 }
 
+let cursor = document.getElementById('cursor');
 let currentMode = 'NORMAL';
 let commandBuffer = '';
+const windowSize = {
+  'width': window.innerWidth,
+  'height': window.innerHeight,
+  'vw': window.innerWidth / 100,
+  'vh': window.innerHeight / 100,
+}
+let cursorPosition = {
+  'x': windowSize.vw,
+  'y': windowSize.vh,
+}
+const cursorStep = {
+  'x': windowSize.vw ,
+  'y': windowSize.vh,
+};
+let currentLine = -1;
+let currentPageItems = document.querySelectorAll('.nvim-line');
 
 document.addEventListener('keydown', (e: KeyboardEvent) => {
   if (currentMode === 'INSERT' && e.key !== 'Escape') {
     return;
   }
-
   switch (e.key) {
     case ':':
       e.preventDefault();
@@ -88,6 +104,7 @@ function handleCommand(command: string) {
         if (keyBindings) {
           keyBindings.classList.toggle('hidden');
         }
+        break
       default:
         console.log('Unknown command:', cmd);
     }
@@ -128,51 +145,56 @@ function handleNormalModeKey(key: string) {
   }
 }
 
-let cursor = document.getElementById('cursor');
 function updatePosition() {
   window.updateStatusBar(undefined, undefined, undefined, `${Math.floor(cursorPosition.y) || 1}:${Math.floor(cursorPosition.x) || 1}`);
   
   if (cursor) {
-    cursor.style.top = `${cursorPosition.y}vh`;
-    cursor.style.left = `${cursorPosition.x}vw`;
+    cursor.style.top = `${cursorPosition.y}px`;
+    cursor.style.left = `${cursorPosition.x}px`;
   } else {
     cursor = document.getElementById('cursor');
   }
 }
 
-let cursorPosition = {
-  'x': 1,
-  'y': 0.5,
-}
-const cursorStep = 1.8;
+document.addEventListener('DOMContentLoaded', () => {
+  currentPageItems = document.querySelectorAll('.nvim-line');
+  console.log('Loaded', currentPageItems.length, 'items');
+})
 
 function moveCursor(direction: 'j' | 'k' | 'h' | 'l') {
   switch (direction) {
     case 'k':
-      if (cursorPosition.y > 0.5 && (cursorPosition.y - Math.round(cursorStep) > 0.5)) {
-        cursorPosition.y -= cursorStep;
-      } else {
-        cursorPosition.y = 0.5;
+      if (currentLine > 0) {
+        currentLine--;
       }
       break;
     case 'j':
-      if (cursorPosition.y < 100) {
-        cursorPosition.y += cursorStep;
+      if (currentLine < currentPageItems.length -1) {
+        currentLine++;
       }
       break;
     case 'h':
-      if (cursorPosition.x > 1) {
-        cursorPosition.x -= cursorStep/2;
+      if ((cursorPosition.x > windowSize.vw) && (cursorPosition.x - Math.round(cursorStep.x) > windowSize.vw)) {
+        cursorPosition.x -= cursorStep.x;
+      } else {
+        cursorPosition.x = windowSize.vw;
       }
       break;
     case 'l':
-      if (cursorPosition.x < 100) {
-        cursorPosition.x += cursorStep/2;
+      if (cursorPosition.x < windowSize.width - 4) {
+        cursorPosition.x += cursorStep.x;
       }
       break;
     default:
       console.log('Invalid direction');
   }
+  
+  // Solo calculamos las nuevas posiciones después de actualizar la línea
+  const { y: screenVerticalPosition, x: screenHorizontalPosition } = currentPageItems[currentLine].getBoundingClientRect();
+  
+  // Actualizamos la posición del cursor
+  cursorPosition.y = screenVerticalPosition;
+  cursorPosition.x = screenHorizontalPosition - 12;
 }
 
 function navigateUp() {
@@ -185,7 +207,6 @@ function navigateUp() {
     window.location.href = '/';
   } else {
     // Remove the last part of the path
-    const newPath = '/' + pathParts.slice(0, -1).join('/');
-    window.location.href = newPath;
+    window.location.href = "/" + pathParts.slice(0, -1).join("/");
   }
 }
