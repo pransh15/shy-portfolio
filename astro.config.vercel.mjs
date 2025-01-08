@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import astroIcon from 'astro-icon';
+import icon from 'astro-icon';
 import vercel from "@astrojs/vercel/static";
 import playformCompress from "@playform/compress";
 
@@ -9,12 +9,12 @@ import playformCompress from "@playform/compress";
 export default defineConfig({
   integrations: [
     tailwind(),
-    astroIcon({
+    icon({
       include: {
         mdi: ["*"],
         'ri': ['*'],
         'simple-icons': ['*'],
-      },
+      }
     }),
     playformCompress({
       CSS: false,

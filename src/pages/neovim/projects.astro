@@ -5,9 +5,15 @@ import { projects } from "@cv";
 
 <Layout title="Projects">
   <ul id="project-list">
-    {projects && projects.map(({ url, description, highlights, name, isActive, github, stack}, index) => {
+    {projects && projects.map(({ url, description, highlights, name, isActive, github, stack}) => {
       return (
-        <li class="mb-6 project-item leading-6 nvim-line" data-index={index} class:list={{'active': isActive, 'open-source': github}}>
+        <li
+          class="mb-6 project-item leading-6 nvim-line"
+          class:list={
+            {'active': isActive, 'open-source': github}
+          }
+          data-href={isActive ? url : github}
+        >
           <div class="flex gap-2">
             {isActive ? (
               <a
@@ -67,49 +73,3 @@ import { projects } from "@cv";
     background-color: rgba(0, 0, 0, 0.1);
   }
 </style>
-
-<script>
-  let currentIndex = 0;
-  const projectItems = document.querySelectorAll('.project-item');
-  
-
-  function moveCursor(direction: 1 | -1) {
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = projectItems.length - 1;
-    if (currentIndex >= projectItems.length) currentIndex = 0;
-  }
-
-  function enterProject() {
-    const activeItem = projectItems[currentIndex].classList.contains('active') ? projectItems[currentIndex] : null;
-    const openSourceItem = projectItems[currentIndex].classList.contains('open-source') ? projectItems[currentIndex] : null;
-    if (activeItem) {
-      const projectUrl: string | null | undefined = activeItem?.querySelector('.project-url')?.getAttribute('href');
-      if (projectUrl) {
-        window.location.href = projectUrl;
-      }
-    }
-    if (openSourceItem) {
-      const repositoryUrl: string | null | undefined = openSourceItem?.querySelector('.repository-url')?.getAttribute('href');
-      if (repositoryUrl) {
-        window.location.href = repositoryUrl;
-      }
-    }
-  }
-  
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
-    switch (e.key) {
-      case 'j':
-        moveCursor(1);
-        console.log(currentIndex)
-        break;
-      case 'k':
-        moveCursor(-1);
-        console.log(currentIndex)
-        break;
-      case 'Enter':
-        enterProject();
-        break;
-    }
-  })
-  
-</script>

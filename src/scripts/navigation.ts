@@ -1,5 +1,13 @@
+enum EMode {
+  NORMAL = 'NORMAL',
+  INSERT = 'INSERT',
+  VISUAL = 'VISUAL',
+  COMMAND = 'COMMAND',
+  SEARCH = 'SEARCH',
+}
+
 let cursor = document.getElementById('cursor');
-let currentMode = 'NORMAL';
+let currentMode: EMode = EMode.NORMAL;
 let commandBuffer = '';
 const windowSize = {
   'width': window.innerWidth,
@@ -11,23 +19,27 @@ let cursorPosition = {
   'x': windowSize.vw,
   'y': windowSize.vh,
 }
-let currentLine = -1;
+let currentLine = 0;
 let currentPageItems = document.querySelectorAll('.nvim-line');
+if (cursor) {
+  cursor.style.top = `${cursorPosition.y}px`;
+  cursor.style.left = `${cursorPosition.x}px `;
+}
 
 document.addEventListener('keydown', (e: KeyboardEvent) => {
-  if (currentMode === 'INSERT' && e.key !== 'Escape') {
+  if (currentMode === EMode.INSERT && e.key !== 'Escape') {
     return;
   }
   switch (e.key) {
     case ':':
       e.preventDefault();
-      currentMode = 'COMMAND';
+      currentMode = EMode.COMMAND;
       commandBuffer = ':';
       window.updateStatusBar(currentMode, commandBuffer);
       break;
     case '/':
       e.preventDefault();
-      currentMode = 'SEARCH';
+      currentMode = EMode.SEARCH;
       commandBuffer = '/';
       window.updateStatusBar(currentMode, commandBuffer);
       break;
@@ -36,13 +48,16 @@ document.addEventListener('keydown', (e: KeyboardEvent) => {
       window.clearSearch()
       break;
     case 'Enter':
-      if (currentMode === 'COMMAND' || currentMode === 'SEARCH') {
+      if (currentMode === EMode.COMMAND || currentMode === EMode.SEARCH) {
         handleCommand(commandBuffer);
         handleEscape();
       }
+      if (currentMode === EMode.NORMAL) {
+        navigateTo();
+      }
       break;
     case 'Backspace':
-      if (currentMode === 'COMMAND' || currentMode === 'SEARCH') {
+      if (currentMode === EMode.COMMAND || currentMode === EMode.SEARCH) {
         e.preventDefault();
         commandBuffer = commandBuffer.slice(0, -1);
         if (commandBuffer.length === 0) {
@@ -53,7 +68,7 @@ document.addEventListener('keydown', (e: KeyboardEvent) => {
       }
       break;
     default:
-      if (currentMode === 'COMMAND' || currentMode === 'SEARCH') {
+      if (currentMode === EMode.COMMAND || currentMode === EMode.SEARCH) {
         e.preventDefault();
         commandBuffer += e.key;
         window.updateStatusBar(undefined, commandBuffer);
@@ -64,7 +79,7 @@ document.addEventListener('keydown', (e: KeyboardEvent) => {
 });
 
 function handleEscape() {
-  currentMode = 'NORMAL';
+  currentMode = EMode.NORMAL;
   commandBuffer = '';
   window.updateStatusBar(currentMode, '');
 }
@@ -119,11 +134,11 @@ function handleNormalModeKey(key: string) {
       moveCursorBottom();
       break;
     case 'i':
-      currentMode = 'INSERT';
+      currentMode = EMode.INSERT;
       window.updateStatusBar(currentMode);
       break;
     case 'v':
-      currentMode = 'VISUAL';
+      currentMode = EMode.VISUAL;
       window.updateStatusBar(currentMode);
       break;
   }
@@ -144,7 +159,6 @@ function updatePosition() {
 
 document.addEventListener('DOMContentLoaded', () => {
   currentPageItems = document.querySelectorAll('.nvim-line');
-  console.log('Loaded', currentPageItems.length, 'items');
 })
 
 function moveCursor(direction: 'j' | 'k') {
@@ -190,5 +204,14 @@ function navigateUp() {
   } else {
     // Remove the last part of the path
     window.location.href = "/" + pathParts.slice(0, -1).join("/");
+  }
+}
+
+function navigateTo() {
+  const currentItem : Element | undefined = currentPageItems[currentLine];
+  const itemUrl: string | null = currentItem?.getAttribute('data-href');
+  
+  if (itemUrl) {
+    window.location.href = itemUrl;
   }
 }

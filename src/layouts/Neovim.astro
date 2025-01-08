@@ -3,6 +3,7 @@ import Sidebar from '@components/neovim/Sidebar.astro';
 import StatusBar from '@components/neovim/StatusBar.astro';
 import '@/globals.css';
 import KeyBindings from "@components/neovim/KeyBindings.astro";
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
 	title: string;
@@ -24,7 +25,7 @@ const { title } = Astro.props;
 	<div class="flex flex-1 overflow-hidden">
 		<Sidebar />
 		<main class="flex-1 overflow-y-auto p-2">
-			<span id="cursor" class={`animate-pulse absolute z-50 text-lg top-[0.5vh] left-[1vw]`}>|</span>
+			<Icon id="cursor" name='mdi:minus' width={24} height={24} class={`animate-pulse absolute z-50 text-lg top-[-100vh] rotate-90`}></Icon>
 			<slot />
 		</main>
 	</div>
