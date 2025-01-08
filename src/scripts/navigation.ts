@@ -23,11 +23,11 @@ let cursorPosition = {
 let currentLine = 0;
 let currentPageItems: NodeListOf<Element> = document.querySelectorAll('.nvim-line');
 
-const firstItem = currentPageItems[0].getBoundingClientRect();
+const firstItem = currentPageItems[0]?.getBoundingClientRect();
 
 if (cursor) {
-  cursor.style.top = `${firstItem.y}px`;
-  cursor.style.left = `${firstItem.x - 18}px `;
+  cursor.style.top = `${firstItem?.y}px`;
+  cursor.style.left = `${firstItem?.x - 18}px `;
 }
 
 document.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -98,7 +98,7 @@ function handleCommand(command: string) {
       case 'about':
         window.location.href = '/neovim/about';
         break;
-      case 'contact':
+      case 'hi':
         window.location.href = '/neovim/contact';
         break;
       case 'q':
@@ -177,7 +177,7 @@ function moveCursor(direction: 'j' | 'k') {
       console.log('Invalid direction');
   }
   
-  const { y: screenVerticalPosition, x: screenHorizontalPosition } = currentPageItems[currentLine].getBoundingClientRect();
+  const { y: screenVerticalPosition, x: screenHorizontalPosition } = currentPageItems[currentLine]?.getBoundingClientRect() ?? { y: 0, x: 0 };
   cursorPosition.y = screenVerticalPosition;
   cursorPosition.x = screenHorizontalPosition - 18;
 }

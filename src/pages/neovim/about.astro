@@ -10,20 +10,22 @@ const { city, region, address } = location
 
 <Layout title="About">
   <div class="flex flex-col items-center justify-center h-full mt-[8%]">
-    <h1 class="text-4xl font-bold mb-2 text-blue">About</h1>
+    <h1 class="text-4xl font-bold mb-2 text-blue nvim-line">About</h1>
     <div class="text-center w-1/2 h-full">
-      <p class="mb-4 text-sm">version 0.0.1</p>
+      <div class="mb-4 flex place-content-center">
+        <p class="nvim-line max-w-max text-xs nvim-line">version 0.0.1</p>
+      </div>
       <div class="flex flex-col text-left justify-left p-10 prose-invert min-h-max">
-        <span class="text-xs text-skin-muted">[me].jpg</span>
-        <h1 class="text-2xl">{name}</h1>
-        <h2 class="text-sm text-green">{label}</h2>
+        <span class="text-xs text-skin-muted nvim-line">[me].jpg</span>
+        <h1 class="text-2xl nvim-line">{name}</h1>
+        <h2 class="text-sm text-green nvim-line">{label}</h2>
         <div class="flex items
-        -center gap-2 pt-1 text-sm text-skin-muted">
+        -center gap-2 pt-1 text-sm text-skin-muted nvim-line">
           {address}, {city}, {region}.
         </div>
         
         <div class="mb-2">
-          <p class="font-mono opacity-75 font-semibold">
+          <p class="font-mono opacity-75 font-semibold nvim-line">
             {summary}
           </p>
         </div>
@@ -33,10 +35,11 @@ const { city, region, address } = location
             email && (
               <a
                 href={`mailto:${email}`}
+                data-href={`mailto:${email}`}
                 title='Send me an email'
                 target='_blank'
                 rel='noopener noreferrer'
-                class='group'>
+                class='group nvim-line'>
                 <span class="text-blue transition ease-linear group-hover:-translate-y-0.5 group-hover:text-skin-hue"> > </span>
                 <span>〔Email〕{email}</span>
               </a>
@@ -47,10 +50,11 @@ const { city, region, address } = location
               return (
                 <a
                   href={url}
+                  data-href={url}
                   title={`Visit ${name} profile on ${network}`}
                   aria-label={`Visit ${name} profile on ${network}`}
                   target='_blank'
-                  class='group'
+                  class='group nvim-line'
                   rel='noopener noreferrer'>
                   <span class="text-blue ease-linear group-hover:text-skin-hue transform transition-all group-hover:font-bold"> > </span>
                   <span >〔{network}〕</span>
@@ -67,23 +71,23 @@ const { city, region, address } = location
             work && work.map(({ name, location, location_type, summary, responsibilities, achievements }) => {
               return (
                 <div class="mb-4">
-                  <h3 class="text-lg font-bold text-blue">{name}</h3>
+                  <h3 class="text-lg font-bold text-blue nvim-line">{name}</h3>
                   {(location || location_type) && (
-                    <div class="text-xs text-skin-muted">
+                    <div class="text-xs text-skin-muted nvim-line">
                       {location} {location && location_type && '-'} {location_type}
                     </div>
                   )}
                   <div class="mt-4 flex flex-col gap-4 text-sm">
                     {summary && (
                       <div class="flex flex-col gap-1">
-                        <h4 class="text-green">Summary:</h4>
+                        <h4 class="text-green nvim-line">Summary:</h4>
                         <ul class="text-skin-muted [&>li]:ml-4 flex list-decimal flex-col gap-2">
                           {Array.isArray(summary) ? (
                             summary.map(item => (
-                              <li>{item}</li>
+                              <li class="nvim-line">{item}</li>
                             ))
                           ) : (
-                            <li>{summary}</li>
+                            <li class="nvim-line">{summary}</li>
                           )}
                         </ul>
                       </div>
@@ -93,10 +97,10 @@ const { city, region, address } = location
                       <div class="flex relative flex-col h-16  duration-200 ease-out">
                       {responsibilities && (
                         <div class="flex flex-col gap-1">
-                          <h4 class="text-green">Responsibilities:</h4>
+                          <h4 class="text-green nvim-line">Responsibilities:</h4>
                           <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
                             {responsibilities.map(responsibility => (
-                              <li>{responsibility}</li>
+                              <li class="nvim-line">{responsibility}</li>
                             ))}
                           </ul>
                         </div>
@@ -104,10 +108,10 @@ const { city, region, address } = location
                       
                       {achievements && (
                         <div class="flex flex-col gap-1">
-                          <h4 class="text-green">Achievements:</h4>
+                          <h4 class="text-green nvim-line">Achievements:</h4>
                           <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
                             {achievements.map(achievement => (
-                              <li>{achievement}</li>
+                              <li class="nvim-line">{achievement}</li>
                             ))}
                           </ul>
                         </div>
