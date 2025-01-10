@@ -80,7 +80,7 @@ const { city, region, address } = location
                   )}
                   <div class="mt-4 flex flex-col gap-4 text-sm">
                     {summary && (
-                      <div class="flex flex-col gap-1">
+                      <div class="flex flex-col gap-2">
                         <h4 class="text-green nvim-line">Summary:</h4>
                         <ul class="text-skin-muted [&>li]:ml-4 flex list-decimal flex-col gap-2">
                           {Array.isArray(summary) ? (
@@ -94,10 +94,8 @@ const { city, region, address } = location
                       </div>
                     )}
                     
-                    {(responsibilities || achievements) &&  (
-                      <div class="flex relative flex-col h-16  duration-200 ease-out">
-                      {responsibilities && (
-                        <div class="flex flex-col gap-1">
+                    { responsibilities &&  (
+                        <div class="flex flex-col gap-2">
                           <h4 class="text-green nvim-line">Responsibilities:</h4>
                           <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
                             {responsibilities.map(responsibility => (
@@ -106,17 +104,15 @@ const { city, region, address } = location
                           </ul>
                         </div>
                       )}
-                      
-                      {achievements && (
-                        <div class="flex flex-col gap-1">
-                          <h4 class="text-green nvim-line">Achievements:</h4>
-                          <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
-                            {achievements.map(achievement => (
-                              <li class="nvim-line">{achievement}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
+                    
+                    { achievements && (
+                      <div class="flex flex-col gap-2">
+                        <h4 class="text-green nvim-line">Achievements:</h4>
+                        <ul class="text-skin-muted [&>li]:ml-4 flex flex-col gap-2 list-decimal">
+                          {achievements.map(achievement => (
+                            <li class="nvim-line">{achievement}</li>
+                          ))}
+                        </ul>
                       </div>
                     )}
                   </div>
