@@ -41,7 +41,7 @@ import { Icon } from 'astro-icon/components'
 <script>
   let isDark = document.documentElement.classList.contains('dark')
 
-  function toggleDark(event: MouseEvent) {
+  export function toggleDark(event: MouseEvent) {
     const isAppearanceTransition =
       'startViewTransition' in document &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches
