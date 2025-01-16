@@ -4,7 +4,7 @@
   "basics": {
     "name": "Ariel G. Falcón",
     "label": "Software Developer",
-    "image": "/avatar.png",
+    "image": "/pfp.webp",
     "email": "falconyumn@gmail.com",
     "url": "https://www.linkedin.com/in/arielfalcon/",
     "summary": "Front-end developer, at the moment. I work on Angular and Vue with Typescript / HTML5 / SCSS. I'm interested in Back-end Development, Cloud Computing and DevOps.",
@@ -435,7 +435,7 @@
       }
     },
     {
-      "name":"AI Web Scraper",
+      "name": "AI Web Scraper",
       "isActive": false,
       "description": "A web scraper that uses AI to extract data from websites. It's a tool to automate the data extraction process, using machine learning to identify and extract data from websites.",
       "highlights": [
