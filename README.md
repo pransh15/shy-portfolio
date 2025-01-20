@@ -70,8 +70,4 @@ Change the data-theme of `cv.json` and choose one of the colour themes defined i
 | 📦  | `deploy:vercel`         | Deploy on Vercel.                           |
 | 📦 | `deploy:cloudflare`       | Deploy on Cloudflare, please run `wrangler login` first.                                           |                                |
 
-## 📝 License
-
-This project is [MIT](./LICENSE) licensed.
-
 CV JSON schema from [**jsonresume.org**](https://jsonresume.org/schema/)
