@@ -65,13 +65,13 @@
   "work": [
     {
       "name": "Zener Soft Consulting",
-      "position": "Front-end Developer",
+      "position": "Full Stack Developer",
       "location_type": "Remote",
       "location": "ES",
       "url": "https://www.linkedin.com/company/aitor-pelaez-zenerconsulting-com/",
       "startDate": "2023-07-03",
       "endDate": null,
-      "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration.",
+      "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration. Participated in development of a complex Micro-services Hexagonal DDD Spring Java project.",
       "highlights": [
         "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
       ],
@@ -99,13 +99,17 @@
         "Angular": "simple-icons:angular",
         "Jasmine": "simple-icons:jasmine",
         "Jest": "simple-icons:jest",
+        "Java": "ri:java-line",
+        "Spring": "simple-icons:spring",
         "NodeJS": "ri:nodejs-line",
         "Postman": "simple-icons:postman",
         "i18n": "simple-icons:i18next",
         "Git": "mdi:git",
         "GitHub": "mdi:github",
         "Figma": "simple-icons:figma",
-        "Jira": "simple-icons:jira"
+        "Jira": "simple-icons:jira",
+        "Kubernetes": "simple-icons:kubernetes",
+        "Docker": "simple-icons:docker"
       }
     }
   ],
@@ -229,6 +233,17 @@
       ]
     },
     {
+      "name": "Astro",
+      "icon": "simple-icons:astro",
+      "level": "Intermediate",
+      "keywords": [
+        "Web Development",
+        "Frontend",
+        "SSR",
+        "Static Generation"
+      ]
+    },
+    {
       "name": "Node",
       "icon": "ri:nodejs-line",
       "level": "Intermediate",
@@ -251,6 +266,25 @@
       ]
     },
     {
+      "name": "Java",
+      "icon": "ri:java-line",
+      "level": "Beginner",
+      "keywords": [
+        "Web Development",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Spring",
+      "icon": "simple-icons:spring",
+      "level": "Beginner",
+      "keywords": [
+        "Web Development",
+        "Backend",
+        "Java Framework"
+      ]
+    },
+    {
       "name": "MongoDB",
       "icon": "simple-icons:mongodb",
       "level": "Beginner",
@@ -259,6 +293,28 @@
         "File",
         "Data Storage",
         "Backend"
+      ]
+    },
+    {
+      "name": "MySql",
+      "icon": "simple-icons:mysql",
+      "level": "Beginner",
+      "keywords": [
+        "Backend",
+        "Databases",
+        "SQL",
+        "Relational Database"
+      ]
+    },
+    {
+      "name": "PostgreSQL",
+      "icon": "simple-icons:postgresql",
+      "level": "Beginner",
+      "keywords": [
+        "Backend",
+        "Databases",
+        "SQL",
+        "Relational Database"
       ]
     },
     {
@@ -283,15 +339,6 @@
       ]
     },
     {
-      "name": "Docker",
-      "icon": "mdi:docker",
-      "level": "Intermediate",
-      "keywords": [
-        "Virtual Environments",
-        "Backend"
-      ]
-    },
-    {
       "name": "AWS",
       "icon": "simple-icons:amazonaws",
       "level": "Beginner",
@@ -299,6 +346,25 @@
         "Cloud Computing",
         "Backend",
         "Infrastructure"
+      ]
+    },
+    {
+      "name": "Docker",
+      "icon": "mdi:docker",
+      "level": "Beginner",
+      "keywords": [
+        "Virtual Environments",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Kubernetes",
+      "icon": "mdi:kubernetes",
+      "level": "Beginner",
+      "keywords": [
+        "Virtual Environments",
+        "Backend",
+        "Container Orchestration"
       ]
     },
     {
@@ -331,17 +397,6 @@
         "Web Development",
         "Frontend",
         "Backend"
-      ]
-    },
-    {
-      "name": "Astro",
-      "icon": "simple-icons:astro",
-      "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "SSR",
-        "Static Generation"
       ]
     },
     {
