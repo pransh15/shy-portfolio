@@ -60,13 +60,13 @@
     }
 
     [data-theme="cyber"] {
-      --color-text-base: 15, 15, 15;
+      --color-text-base: 130, 130, 130;
       --color-text-muted: 144, 135, 5;
       --color-text-inverted: 240, 240, 240;
-      --color-fill: 252, 255, 64;
+      --color-fill: 202, 180, 14;
       --muted: 50, 50, 50;
-      --color: 235, 21, 43;
-      --color-button-accent: 235, 21, 43;
+      --color: 205, 21, 43;
+      --color-button-accent: 155, 21, 43;
       --color-button-accent-hover: 0, 185, 255;
       --color-button-muted: 249, 239, 6;
       --color-nvim-blue: 95, 175, 215;
@@ -130,13 +130,13 @@
     }
 
     [data-theme="cyber"] {
-      --color-text-base: 252, 255, 64;
+      --color-text-base: 252, 255, 54;
       --color-text-muted: 125, 125, 125;
       --color-text-inverted: 240, 240, 240;
       --color-fill: 15, 15, 15;
       --muted: 50, 50, 50;
       --color: 90, 237, 251;
-      --color-button-accent: 90, 237, 251;
+      --color-button-accent: 70, 210, 220;
       --color-button-accent-hover: 0, 185, 255;
       --color-button-muted: 25, 81, 86;
       --color-nvim-blue: 95, 175, 215;
