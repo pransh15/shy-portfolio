@@ -7,7 +7,7 @@
     "image": "/pfp.webp",
     "email": "falconyumn@gmail.com",
     "url": "https://www.linkedin.com/in/arielfalcon/",
-    "summary": "Front-end developer, at the moment. I work on Angular and Vue with Typescript / HTML5 / SCSS. I'm interested in Back-end Development, Cloud Computing and DevOps.",
+    "summary": "Front-end developer, at the moment. I work on Angular and Vue with Typescript / HTML5 / SCSS. Currently learning about Back-end Development, Cloud Computing and DevOps.",
     "theme": "red",
     "location": {
       "address": "Alcalá de Henares",
@@ -65,7 +65,7 @@
   "work": [
     {
       "name": "Zener Soft Consulting",
-      "position": "Full Stack Developer",
+      "position": "Front-end Developer",
       "location_type": "Remote",
       "location": "ES",
       "url": "https://www.linkedin.com/company/aitor-pelaez-zenerconsulting-com/",
