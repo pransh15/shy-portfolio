@@ -1,6 +1,5 @@
 {
   "analyticsCode": "",
-  "pageLayout": "two-column",
   "basics": {
     "name": "Ariel G. Falcón",
     "label": "Software Developer",
@@ -462,7 +461,6 @@
       ],
       "stack": {
         "Python": "simple-icons:python",
-        "Apache Airflow": "simple-icons:apacheairflow",
         "Redis": "simple-icons:redis",
         "Firebase": "simple-icons:firebase",
         "Google Cloud": "simple-icons:googlecloud",

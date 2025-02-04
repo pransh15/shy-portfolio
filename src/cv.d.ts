@@ -1,16 +1,15 @@
 export interface CV {
+  analyticsCode: string;
   basics: Basics;
-  work: Array<Work>;
-  volunteer: Array<Volunteer>;
-  education: Array<Education>;
-  awards: Array<Awards>;
-  certificates: Array<Certificates>;
-  publications: Array<Publications>;
-  skills: Array<Skills>;
-  languages: Array<Languages>;
-  interests: Array<Interests>;
-  references: Array<References>;
-  projects: Array<Projects>;
+  skills: Array<Skill>;
+  work?: Array<Work>;
+  education?: Array<Education>;
+  Certificates?: Array<Certificate>;
+  publications?: Array<Publication>;
+  languages: Array<Language>;
+  interests?: Array<Interests>;
+  references?: Array<Reference>;
+  projects?: Array<Project>;
 }
 
 interface Basics {
@@ -18,8 +17,8 @@ interface Basics {
   label: string;
   image: string;
   email: string;
-  phone: string;
-  url: string;
+  phone?: string;
+  url: URL;
   summary: string;
   location: Location;
   profiles: Array<Profiles>;
@@ -27,8 +26,8 @@ interface Basics {
 
 interface Location {
   address: string;
-  postalCode: string;
   city: string;
+  postalCode?: string;
   countryCode: string;
   region: string;
 }
@@ -37,13 +36,13 @@ interface Profiles {
   icon: string,
   network: string;
   username: string;
-  url: string;
+  url: URL;
 }
 
 interface Work {
   name: string;
   position: string;
-  url: string;
+  url: URL;
   startDate: DateStr;
   endDate: DateStr | null;
   summary: string;
@@ -52,86 +51,51 @@ interface Work {
 
 type DateStr = `${string}-${string}-${string}`;
 
-interface Volunteer {
-  organization: string;
-  position: string;
-  url: string;
-  startDate: DateStr;
-  endDate: DateStr;
-  summary: string;
-  highlights: Highlight;
-}
-
-interface Skills {
+interface Skill {
   icon: string,
   name: string;
   level: string;
   keywords: Array<string>;
 }
 
-interface Awards {
-  title: string;
-  date: string;
-  awarder: string;
-  summary: string;
-}
-
-interface Certificates {
+interface Certificate {
   name: string;
   date: DateStr;
   issuer: string;
-  url: string;
+  url: URL;
 }
 
-interface Publications {
+interface Publication {
   name: string;
   publisher: string;
   releaseDate: DateStr;
-  url: string;
+  url: URL;
   summary: string;
 }
 
 interface Education {
   institution: string;
-  url: string;
+  url: URL;
   area: string;
   studyType: string;
   startDate: DateStr;
   endDate: DateStr;
-  score: string;
-  courses: Array<string>;
+  score?: string;
+  courses?: Array<string>;
 }
 
-interface Languages {
-  language: Language;
+interface Language {
+  language: string;
   fluency: string;
 }
 
-type Language =
-  | "Spanish"
-  | "English"
-  | "German"
-  | "France"
-  | "Italian"
-  | "Korean"
-  | "Portuguese"
-  | "Chinese"
-  | "Arabic"
-  | "Dutch"
-  | "Finnish"
-  | "Russian"
-  | "Turkish"
-  | "Hindi"
-  | "Bengali"
-  | string;
-
-interface Projects {
+interface Project {
   name: string;
   isActive: boolean;
   description: string;
-  highlights: Highlight;
-  url: string;
-  github?: string;
+  highlights: Highlights;
+  url?: URL;
+  github?: URL;
 }
 
 interface Interests {
@@ -139,9 +103,9 @@ interface Interests {
   keywords: Array<string>;
 }
 
-interface References {
+interface Reference {
   name: string;
   reference: string;
 }
 
-type Highlight = Array<String>;
+type Highlights = Array<String>;
