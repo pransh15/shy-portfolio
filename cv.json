@@ -211,17 +211,6 @@
       ]
     },
     {
-      "name": "NgRx",
-      "icon": "simple-icons:ngrx",
-      "level": "Intermediate",
-      "keywords": [
-        "Web Development",
-        "Frontend",
-        "State Management",
-        "JavaScript"
-      ]
-    },
-    {
       "name": "Vue",
       "icon": "mdi:vuejs",
       "level": "Intermediate",
@@ -296,7 +285,7 @@
       ]
     },
     {
-      "name": "MySql",
+      "name": "MySQL",
       "icon": "simple-icons:mysql",
       "level": "Beginner",
       "keywords": [
@@ -416,6 +405,38 @@
         "OS",
         "Scripting",
         "Automation"
+      ]
+    },
+    {
+      "name": "Swagger",
+      "icon": "simple-icons:swagger",
+      "level": "Beginner",
+      "keywords": [
+        "API",
+        "Documentation",
+        "Web Development",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Postman",
+      "icon": "simple-icons:linux",
+      "level": "Intermediate",
+      "keywords": [
+        "API",
+        "Testing",
+        "Web Development",
+        "Backend"
+      ]
+    },
+    {
+      "name": "Figma",
+      "icon": "simple-icons:linux",
+      "level": "Beginner",
+      "keywords": [
+        "Prototyping",
+        "Web Development",
+        "Frontend"
       ]
     }
   ],
