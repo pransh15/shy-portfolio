@@ -420,7 +420,7 @@
     },
     {
       "name": "Postman",
-      "icon": "simple-icons:linux",
+      "icon": "simple-icons:postman",
       "level": "Intermediate",
       "keywords": [
         "API",
@@ -431,7 +431,7 @@
     },
     {
       "name": "Figma",
-      "icon": "simple-icons:linux",
+      "icon": "simple-icons:figma",
       "level": "Beginner",
       "keywords": [
         "Prototyping",
