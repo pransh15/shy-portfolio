@@ -191,7 +191,7 @@
 }
 @layer components {
   .hover-grad-text {
-    @apply text-[100px] text-center text-transparent bg-clip-text transition-all ease-in-out duration-700;
+    @apply text-center text-transparent bg-clip-text transition-all ease-in-out duration-700;
     background-image: linear-gradient(
       to right,
       theme("colors.slate.950"),
