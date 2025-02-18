@@ -185,6 +185,9 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-nvim-gray rounded;
   }
+  .modified-cursor-none {
+    cursor: none !important;
+  }
 }
 @layer components {
   .hover-grad-text {
