@@ -528,7 +528,7 @@
         "🌐 Web scraping"
       ],
       "stack": {
-        "Python": "simple-icons:python",
+        "Javascript": "simple-icons:javascript",
         "Selenium": "simple-icons:selenium",
         "ChromeDriver": "ri:chrome-fill",
         "Groq": "ri:robot-2-fill"
