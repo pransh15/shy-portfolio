@@ -2,8 +2,10 @@
 import { basics } from '@cv'
 import Section from '@/components/Section.astro'
 import { Icon } from 'astro-icon/components'
+import Component from "@components/Component.astro";
+import { SOCIALS } from "../../scripts/socials";
 
-const { name, label, image, location, profiles, email } = basics
+const { name, label, image, location } = basics
 const { city, region, address } = location
 ---
 
@@ -12,13 +14,14 @@ const { city, region, address } = location
     <section
       id="about"
       aria-label="About me"
-      class="group col-span-2 flex gap-2 h-full w-full rotate-0 sm:-rotate-2 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all sm:hover:rotate-0 sm:hover:bg-skin-muted"
+      class="group flex gap-2 sm:-rotate-2 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all sm:hover:rotate-0 sm:hover:bg-skin-muted"
     >
       <div
-        class="flex items-center text-center"
+        class="flex items-center text-center gap-3"
       >
         <figure class='print:hidden'>
           <img
+            data-ccursor="lift"
             class='scale-110 sm:grayscale sm:scale-100 transition-all sm:group-hover:scale-110 sm:group-hover:grayscale-0'
             height={600}
             width={600}
@@ -27,11 +30,11 @@ const { city, region, address } = location
             loading='eager' />
         </figure>
         <div class="flex flex-col items-center">
-          <h1 class="font-medium sm:text-inherit sm:group-hover:text-skin-hue">{name}</h1>
-          <h2 class="font-medium sm:text-inherit sm:group-hover:text-skin-hue">{label}</h2>
+          <h1 data-ccursor="noPadding" class="font-medium sm:text-inherit sm:group-hover:text-skin-hue">{name}</h1>
+          <h2 data-ccursor="noPadding" class="font-medium sm:text-inherit sm:group-hover:text-skin-inverted px-2">{label}</h2>
         </div>
       </div>
-      <div class='flex items-center gap-2 pt-2 text-sm text-skin-muted w-full md:col-span-2'>
+      <div data-ccursor="noPadding" class='flex w-max gap-2 py-1 px-2 text-sm text-skin-muted'>
         <Icon class='print:hidden sm:group-hover:text-skin-hue' name='mdi:world' width={20} height={20} />
         {address}, {city}, {region}
       </div>
@@ -40,41 +43,32 @@ const { city, region, address } = location
   <div class='flex flex-col-reverse gap-8'>
     <div class='info'>
       <footer class='print:hidden'>
-        {
-          email && (
-            <a
-              href={`mailto:${email}`}
-              title='Send me an email'
-              target='_blank'
-              aria-label='Send me an email'
-              rel='noopener noreferrer'>
-              <Icon
-                class='print:hidden'
-                name='mdi:email'
-                width={20}
-                height={20}
-              />
-            </a>
-          )
-        }
-        {
-          profiles.map(({ network, url, icon }) => {
-            return (
-              <a
-                href={url}
-                title={`Visit ${name} profile on ${network}`}
-                aria-label={`Visit ${name} profile on ${network}`}
-                target='_blank'
-                class='print:hidden'
-                rel='noopener noreferrer'>
-                <Icon class='print:hidden' name={icon} width={20} height={20} />
-              </a>
-            )
-          })
-        }
         <div
-          class='footer-button group flex h-8 w-9 cursor-pointer items-center justify-center rounded-md text-skin-hue hover:bg-skin-button-accent hover:text-skin-inverted max-sm:hidden print:hidden [&>span]:hover:text-skin-inverted transition-all duration-500 ease-linear'>
-          <Icon name='ri:command-fill' class='h-5 w-5' />
+          aria-label="Social media"
+          class="flex group/social flex-wrap h-40 w-36 flex-col rounded-3xl p-4 transition-all rotate-0 bg-skin-muted sm:bg-skin-button-muted sm:-rotate-2 sm:hover:rotate-0 sm:hover:bg-skin-muted"
+        >
+          {
+            SOCIALS.map(({name, icon, url}) => (
+              <a
+                data-ccursor
+                class="flex flex-col basis-1/2 items-center justify-center rounded-md"
+                href={url}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={`${name} (opens in a new tab)`}
+                data-umami-event={`${name} click`}
+                id={name}
+              >
+                <Component component={icon} />
+              </a>
+            ))
+          }
+        </div>
+        <div
+          class="footer-button flex h-40 w-36 flex-col place-items-center rounded-3xl sm:bg-skin-muted p-4 transition-all rotate-0 bg-skin-muted sm:rotate-2 sm:hover:rotate-0 sm:hover:bg-skin-button-accent text-skin-hue sm:hover:text-skin-inverted max-sm:hidden print:hidden" data-ccursor="lift"
+        >
+          <Icon name='ri:command-fill' class='flex-1 w-1/2'/>
+          <p class="font-mono font-bold text-center">Open options</p>
         </div>
       </footer>
     </div>
@@ -83,7 +77,11 @@ const { city, region, address } = location
 
 <style>
   .info {
-    @apply flex flex-col gap-1 pr-8 print:gap-0 print:pr-0;
+    @apply print:gap-0 print:pr-0;
+    
+    footer {
+      @apply flex gap-4;
+    }
   }
 
   h1 {
@@ -103,13 +101,9 @@ const { city, region, address } = location
   }
 
   footer {
-    @apply mt-2 flex gap-1 text-sm;
+    @apply flex gap-1;
   }
-
-  footer a,
-  footer button {
-    @apply inline-flex size-8 items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent hover:text-skin-inverted;
-  }
+  
 
   @media (width <= 700px) {
     .container {

@@ -3,19 +3,23 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@/*": [
+        "src/*"
+      ],
       "@cv": [
         "./cv.json"
       ],
-      "@/*": [
-        "src/*"
+      "@icons/*": [
+        "src/icons/*"
       ],
       "@components/*": [
         "src/components/*"
       ],
       "@layouts/*": [
         "src/layouts/*"
-      ],
+      ]
     }
   },
-  "include": ["global.d.ts", "src"]
+  "include": ["global.d.ts", "src", "src/**/*.astro", "src/**/*.ts"],
+  "exclude": ["node_modules", "src/lib"]
 }

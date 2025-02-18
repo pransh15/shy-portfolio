@@ -16,6 +16,12 @@
     },
     "profiles": [
       {
+        "network": "Twitter",
+        "icon": "ri:twitter-fill",
+        "username": "@arielGfalcon",
+        "url": "https://x.com/arielGfalcon"
+      },
+      {
         "network": "LinkedIn",
         "icon": "ri:linkedin-fill",
         "username": "Ariel Falcón",
