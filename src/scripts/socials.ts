@@ -1,6 +1,10 @@
+// @ts-ignore
 import Email from "@icons/email.astro";
+// @ts-ignore
 import IconTwitter from "@icons/twitter.astro";
+// @ts-ignore
 import IconGithub from "@icons/github.astro";
+// @ts-ignore
 import IconLinkedin from "@icons/linkedin.astro";
 import { basics } from "@cv"
 export const SOCIALS = [
@@ -21,7 +25,7 @@ export const SOCIALS = [
 	},
 	{
 		name: "Email",
-		url: basics.email,
+		url: `mailto:${basics.email}`,
 		icon: Email,
 	},
 ];

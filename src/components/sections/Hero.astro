@@ -17,7 +17,7 @@ const { city, region, address } = location
       class="group flex gap-2 sm:-rotate-2 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all sm:hover:rotate-0 sm:hover:bg-skin-muted"
     >
       <div
-        class="flex items-center text-center gap-3"
+        class="flex items-center text-center gap-4"
       >
         <figure class='print:hidden'>
           <img
@@ -40,18 +40,16 @@ const { city, region, address } = location
       </div>
     </section>
   </div>
-  <div class='flex flex-col-reverse gap-8'>
-    <div class='info'>
-      <footer class='print:hidden'>
+  <div class='flex gap-6 print:hidden'>
         <div
           aria-label="Social media"
-          class="flex group/social flex-wrap h-40 w-36 flex-col rounded-3xl p-4 transition-all rotate-0 bg-skin-muted sm:bg-skin-button-muted sm:-rotate-2 sm:hover:rotate-0 sm:hover:bg-skin-muted"
+          class="flex group/social flex-wrap justify-evenly sm:h-40 sm:w-36 w-full h-min sm:flex-col rounded-3xl p-4 transition-all rotate-0 bg-skin-muted sm:bg-skin-button-muted sm:-rotate-2 sm:hover:rotate-0 sm:hover:bg-skin-muted"
         >
           {
             SOCIALS.map(({name, icon, url}) => (
               <a
                 data-ccursor
-                class="flex flex-col basis-1/2 items-center justify-center rounded-md"
+                class="flex flex-col sm:basis-1/2 items-center justify-center rounded-md"
                 href={url}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -70,8 +68,6 @@ const { city, region, address } = location
           <Icon name='ri:command-fill' class='flex-1 w-1/2'/>
           <p class="font-mono font-bold text-center">Open options</p>
         </div>
-      </footer>
-    </div>
   </div>
 </Section>
 
