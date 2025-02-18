@@ -7,11 +7,6 @@ import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      external: ['.src/lib/context-cursor/contextCursor'],
-    }
-  },
   integrations: [
     tailwind(),
     icon({
