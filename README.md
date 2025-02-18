@@ -45,12 +45,6 @@ cd portfolio
 pnpm install
 ```
 
-### 1-2. Install [Cursor-lib](https://github.com/PavelLaptev/context-cursor) for the cursor effect
-
-```bash
-cd src/lib && git clone git@github.com:PavelLaptev/context-cursor.git
-```
-
 ### 2. Add Your Content:
 
 Edit the `cv.json` file to create your own printable Portfolio/CV.
