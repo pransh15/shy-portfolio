@@ -34,6 +34,8 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "prettier-plugin-astro": "^0.14.1",
     "rimraf": "^6.0.1",
-    "wrangler": "^3.80.0"
+    "wrangler": "^3.80.0",
+    "daisyui": "^4.12.10",
+    "tailwind-scrollbar": "^3.1.0"
   }
 }

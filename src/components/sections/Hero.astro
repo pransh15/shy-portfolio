@@ -2,24 +2,43 @@
 import { basics } from '@cv'
 import Section from '@/components/Section.astro'
 import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
 
 const { name, label, image, location, profiles, email } = basics
 const { city, region, address } = location
 ---
 
 <Section>
-  <div class='flex flex-col-reverse gap-8'>
-    <div class='info'>
-      <h1>{name}</h1>
-      <h2>{label}</h2>
-      <div class='flex items-center gap-2 pt-2 text-sm text-skin-muted'>
-        <Icon class='print:hidden' name='mdi:world' width={20} height={20} />
+  <div class="min-w-[275px]">
+    <section
+      id="about"
+      aria-label="About me"
+      class="group col-span-2 flex gap-2 h-full w-full rotate-0 sm:-rotate-2 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all sm:hover:rotate-0 sm:hover:bg-skin-muted"
+    >
+      <div
+        class="flex items-center text-center"
+      >
+        <figure class='print:hidden'>
+          <img
+            class='scale-110 sm:grayscale sm:scale-100 transition-all sm:group-hover:scale-110 sm:group-hover:grayscale-0'
+            height={600}
+            width={600}
+            src={image}
+            alt={`Profile of ${name}`}
+            loading='eager' />
+        </figure>
+        <div class="flex flex-col items-center">
+          <h1 class="font-medium sm:text-inherit sm:group-hover:text-skin-hue">{name}</h1>
+          <h2 class="font-medium sm:text-inherit sm:group-hover:text-skin-hue">{label}</h2>
+        </div>
+      </div>
+      <div class='flex items-center gap-2 pt-2 text-sm text-skin-muted w-full md:col-span-2'>
+        <Icon class='print:hidden sm:group-hover:text-skin-hue' name='mdi:world' width={20} height={20} />
         {address}, {city}, {region}
       </div>
-      <footer class='print'>
-        {email}
-      </footer>
+    </section>
+  </div>
+  <div class='flex flex-col-reverse gap-8'>
+    <div class='info'>
       <footer class='print:hidden'>
         {
           email && (
@@ -59,23 +78,6 @@ const { city, region, address } = location
         </div>
       </footer>
     </div>
-    <figure class='relative w-fit print:hidden'>
-      <Image class='shadow-skin-hues shadow-lg' height={600} width={600} src={image} alt={`Profile of ${name}`} loading='eager' />
-      <div class='pointer-events-none absolute -inset-2'>
-        <div
-          class='absolute -inset-y-8 right-0 w-px bg-skin-hue/50 [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
-        </div>
-        <div
-          class='absolute -inset-y-8 left-0 w-px bg-skin-hue/50 [mask-image:linear-gradient(to_top,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
-        </div>
-        <div
-          class='absolute -inset-x-8 bottom-0 h-px bg-skin-hue/50 [mask-image:linear-gradient(to_left,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
-        </div>
-        <div
-          class='absolute -inset-x-8 top-0 h-px bg-skin-hue/50 [mask-image:linear-gradient(to_left,transparent,white_4rem,white_calc(100%-4rem),transparent)]'>
-        </div>
-      </div>
-    </figure>
   </div>
 </Section>
 

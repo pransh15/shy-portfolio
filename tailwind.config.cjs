@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from "daisyui";
+import scrollbar from "tailwind-scrollbar";
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -66,5 +68,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    daisyui,
+    scrollbar,
   ],
 };
