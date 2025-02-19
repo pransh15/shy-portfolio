@@ -21,20 +21,30 @@
       {
         "network": "X / Twitter",
         "icon": "ri:twitter-fill",
+        "color": "#1DA1F2",
         "username": "@arielGfalcon",
         "url": "https://x.com/arielGfalcon"
       },
       {
         "network": "LinkedIn",
         "icon": "ri:linkedin-fill",
+        "color": "#0066C2",
         "username": "Ariel Falcón",
         "url": "https://linkedin.com/in/arielfalcon"
       },
       {
         "network": "GitHub",
         "icon": "mdi:github",
+        "color": "#929AAB",
         "username": "ArielFalcon",
         "url": "https://github.com/ArielFalcon"
+      },
+      {
+        "network": "Email",
+        "icon": "ri:mail-fill",
+        "color": "#D44638",
+        "username": "Ariel González Falcón",
+        "url": "mailto:falconyumn@gmail.com"
       }
     ]
   },

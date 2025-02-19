@@ -189,19 +189,17 @@
   .modified-cursor-none {
     cursor: none !important;
   }
-}
-@layer components {
   .hover-grad-text {
     @apply text-center text-transparent bg-clip-text transition-all ease-in-out duration-700;
     background-image: linear-gradient(
-      to right,
-      theme("colors.slate.950"),
-      theme("colors.slate.950") 33%,
-      theme("colors.red.500") 66%,
-      theme(colors.orange.400),
-      theme("colors.yellow.500"),
-      theme("colors.blue"),
-      theme("colors.purple.500")
+            to right,
+            theme("colors.slate.950"),
+            theme("colors.slate.950") 33%,
+            theme("colors.red.500") 66%,
+            theme(colors.orange.400),
+            theme("colors.yellow.500"),
+            theme("colors.blue"),
+            theme("colors.purple.500")
     );
     background-size: 300% 100%;
     background-position: top left 100%;

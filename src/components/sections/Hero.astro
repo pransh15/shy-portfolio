@@ -2,10 +2,8 @@
 import { basics } from '@cv'
 import Section from '@/components/Section.astro'
 import { Icon } from 'astro-icon/components'
-import Component from "@components/Component.astro";
-import { SOCIALS } from "../../scripts/socials";
 
-const { name, label, animated_secondary_initial_label, animated_main_label, animated_secondary_final_label, image, location } = basics
+const { name, animated_secondary_initial_label, animated_main_label, animated_secondary_final_label, image, location } = basics
 const { city, region, address } = location
 ---
 
@@ -34,12 +32,12 @@ const { city, region, address } = location
           <div class="overflow-hidden mt-1">
             <div class="font-roboto-condensed font-bold lowercase text-xl lg:text-[1rem] lg:leading-[1rem]">
               <div class="group/subtitle relative flex gap-1 hover:gap-5 active:gap-5 transition-all">
-                <div class="transition-all duration-350 group-hover/subtitle:-translate-y-16">
+                <div class="transition-all duration-450 ease-in-out group-hover/subtitle:-translate-y-16">
                   <p class="font-roboto-condensed font-medium lowercase text-xl lg:text-[1rem] lg:leading-[1rem]">
                     {animated_secondary_initial_label}
                   </p>
                 </div>
-                <div class="absolute inset-x-0 top-0 w-max translate-y-16 transition-all duration-350 group-hover/subtitle:translate-y-0">
+                <div class="absolute inset-x-0 top-0 w-max translate-y-16 transition-all duration-450 ease-in-out group-hover/subtitle:translate-y-0">
                   <p class="font-roboto-condensed font-bold lowercase text-xl lg:text-[1rem] lg:leading-[1rem] bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                     {animated_secondary_final_label}
                   </p>
@@ -62,20 +60,22 @@ const { city, region, address } = location
           class="flex group/social flex-wrap justify-evenly sm:h-40 sm:w-36 w-full h-min sm:flex-col rounded-3xl p-4 transition-all rotate-0 bg-skin-muted sm:bg-skin-button-muted sm:-rotate-2 sm:hover:rotate-0 sm:hover:bg-skin-muted"
         >
           {
-            SOCIALS.map(({name, icon, url}) => (
-              <a
-                data-ccursor
-                class="flex flex-col sm:basis-1/2 items-center justify-center rounded-md hover:cursor-none"
-                href={url}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={`${name} (opens in a new tab)`}
-                data-umami-event={`${name} click`}
-                id={name}
-              >
-                <Component component={icon} />
-              </a>
-            ))
+            basics.profiles.map(({network, url, icon, color}) => {
+              return (
+                <a
+                  data-ccursor
+                  class="flex flex-col sm:basis-1/2 items-center justify-center rounded-md hover:cursor-none"
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={`${network} (opens in a new tab)`}
+                  data-umami-event={`${network} click`}
+                  id={network}
+                >
+                  <Icon name={icon} width={28} height={28} class='sm:grayscale sm:group-hover/social:grayscale-0 transition-all' style=`color: ${color};` aria-label={network}/>
+                </a>
+              )
+            })
           }
         </div>
         <div
