@@ -120,14 +120,11 @@ const profilesInfo = profiles.map(({ network, url }) => {
     ...data,
   ])
 
-  const footerButtons = document.querySelectorAll('.footer-button')
-  footerButtons.forEach(button => {
+  document.querySelectorAll('.footer-button').forEach(button => {
     button.addEventListener('click', () => {
       let event = new KeyboardEvent('keydown', {
         key: 'K',
         code: 'KeyK',
-        keyCode: 75,
-        which: 75,
         ctrlKey: true,
         altKey: false,
         shiftKey: false,
@@ -142,6 +139,9 @@ const profilesInfo = profiles.map(({ network, url }) => {
 		li.classList.add("modified-cursor-none");
   });
   document.querySelectorAll("#hotkeypad footer > p").forEach(li => {
+	  li.setAttribute("data-ccursor", "");
+  });
+  document.querySelectorAll("#hotkeypad li > div").forEach(li => {
 	  li.setAttribute("data-ccursor", "");
   });
 </script>
