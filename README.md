@@ -1,5 +1,5 @@
 ## Print-friendly portfolio CV
->[Take a look](https://arielfalcon.me) 🌐
+>[Take a look](https://www.arielfalcon.me) 🌐
 <p align = "center">
     <img src="public/astro-vim.png" alt="logo" width="200"/>
 </p>
