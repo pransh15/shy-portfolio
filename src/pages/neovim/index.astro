@@ -16,7 +16,7 @@ const { name } = basics;
         <p class="nvim-line max-w-max">Neovim mode</p>
       </div>
       <a href="https://github.com/ArielFalcon" class="hover:underline text-blue hover:text-blue-800 nvim-line">Ariel G Falcón</a>
-      <div class="py-8 text-green text-left hero-content">
+      <div class="py-8 text-green text-left hero-content flex flex-col">
         <p class = 'nvim-line'>
           <span>type  :about<span class="text-blue">&lt;Enter&gt;</span></span>
           <span><span>to view about information</span></span>
@@ -28,12 +28,10 @@ const { name } = basics;
         <p class = 'nvim-line'><span>type  :hi<span class="text-blue">&lt;Enter&gt;</span></span>
           <span>to view contact details</span>
         </p>
-        <br />
         <p class = 'nvim-line'>
           <span>type  /<span class="text-blue">&lt;Search term&gt;</span></span>
           <span>to search posts</span>
         </p>
-        <br />
         <p class = 'nvim-line'>
           <span>type  :h<span class="text-blue">&lt;Enter&gt;</span></span>
           <span>to view the <a href="neovim/help" class="underline text-blue hover:text-blue-800">help</a> page</span>
@@ -52,6 +50,9 @@ const { name } = basics;
 </Layout>
 
 <style>
+  * {
+    cursor: default !important;
+  }
   .hero-content p {
     display: flex;
     justify-content: space-between;
