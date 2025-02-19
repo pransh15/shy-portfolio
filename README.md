@@ -1,5 +1,5 @@
 ## Print-friendly portfolio CV
->[Take a look](https://pnpm.io/installation)🌐
+>[Take a look](https://pnpm.io/installation) 🌐
 <p align = "center">
     <img src="public/astro-vim.png" alt="logo" width="200"/>
 </p>
