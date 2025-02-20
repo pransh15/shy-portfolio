@@ -13,7 +13,7 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-hidden">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
@@ -21,7 +21,7 @@ const { title } = Astro.props;
 	<meta name="generator" content={Astro.generator} />
 	<title>{title}</title>
 </head>
-<body class="bg-nvim-bg text-nvim-fg font-mono flex flex-col h-screen select-none prose-invert">
+<body class="bg-nvim-bg text-nvim-fg font-mono flex flex-col h-full select-none prose-invert">
 	<div class="flex flex-1 overflow-hidden">
 		<Sidebar />
 		<main class="flex-1 overflow-y-auto p-2">
@@ -36,12 +36,3 @@ const { title } = Astro.props;
 
 <script src="../scripts/navigation.ts"></script>
 <script src="../scripts/search.ts"></script>
-
-<style>
-	html {
-	overflow: hidden;
-		body {
-			height: 100%;
-		}
-	}
-</style>
