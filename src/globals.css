@@ -161,12 +161,6 @@
   body {
     @apply bg-nvim-bg text-nvim-fg font-mono select-none;
 
-    * {
-      @apply rounded-lg;
-      cursor: none !important;
-      -webkit-user-drag: none;
-    }
-
     .c-cursor {
       position: fixed;
       z-index: 9999;
