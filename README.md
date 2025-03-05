@@ -29,7 +29,7 @@ I also implemented and improved this neovim mode [**neovim-porfolio**](https://g
 
 Modify the `cv.json` file to create your own printable Portfolio/CV.
 
-### 1. Use this Repo as an Astro Project Template
+### 1. Use this Repo as an Astro Project Template 
 
 - I use [pnpm](https://pnpm.io/installation) as my package manager.
 
