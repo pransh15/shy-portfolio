@@ -1,3 +1,6 @@
+> [!NOTE]
+> If you use it, refactor it or improve it in some way for your personal ussage i'll be glad if you let me know to see it. THX!
+
 ## Print-friendly portfolio CV
 
 > [!TIP]
