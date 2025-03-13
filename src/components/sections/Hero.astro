@@ -3,19 +3,19 @@ import { basics } from '@cv'
 import Section from '@/components/Section.astro'
 import { Icon } from 'astro-icon/components'
 
-const { name, animated_secondary_initial_label, animated_main_label, animated_secondary_final_label, image, location } = basics
+const { name, animated_secondary_initial_label, animated_main_label, animated_secondary_final_label, image, location, email } = basics
 const { city, region, address } = location
 ---
 
-<Section>
+<Section className={Astro.props.className}>
   <div class="min-w-[275px]">
     <section
       id="about"
       aria-label="About me"
-      class="group flex gap-2 sm:-rotate-2 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all sm:hover:rotate-0 sm:hover:bg-skin-muted"
+      class="group flex gap-2 sm:-rotate-2 print:rotate-0 flex-col rounded-3xl bg-skin-muted sm:bg-skin-button-muted p-4 transition-all sm:hover:rotate-0 sm:hover:bg-skin-muted print:gap-0 print:p-2"
     >
       <div
-        class="flex items-center text-center gap-4"
+        class="flex items-center text-center gap-4 print:gap-1"
       >
         <figure class='print:hidden'>
           <img
@@ -52,6 +52,7 @@ const { city, region, address } = location
         <Icon class='print:hidden sm:group-hover:text-skin-hue' name='mdi:world' width={20} height={20} />
         {address}, {city}, {region}
       </div>
+      <div class="hidden print:block"><b>Contact: </b>{email}</div>
     </section>
   </div>
   <div class='flex gap-6 print:hidden'>
@@ -85,7 +86,6 @@ const { city, region, address } = location
           <p class="font-mono font-bold text-center">Open options</p>
         </div>
   </div>
-
 </Section>
 
 <style>
@@ -168,7 +168,7 @@ const { city, region, address } = location
     updateTheme(select.value)
   })
 
-  // Desable dark mode before printing
+  // Disable dark mode before printing
   window.addEventListener('beforeprint', () => {
     document.documentElement.classList.remove('dark')
   })
