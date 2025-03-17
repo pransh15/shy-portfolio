@@ -1,94 +1,80 @@
 {
   "analyticsCode": "",
   "basics": {
-    "name": "Ariel G. Falcón",
-    "label": "Software Developer",
-    "animated_main_label": "developer",
-    "animated_secondary_initial_label": "software",
-    "animated_secondary_final_label": "front_end",
+    "name": "Shina Dhingra",
+    "label": "Data Scientist",
+    "animated_main_label": "scientist",
+    "animated_secondary_initial_label": "data",
+    "animated_secondary_final_label": "machine_learning",
     "image": "/pfp.webp",
-    "email": "falconyumn@gmail.com",
-    "url": "https://www.linkedin.com/in/arielfalcon/",
-    "summary": "Front-end developer, at the moment. I work on Angular and Vue with Typescript / HTML5 / SCSS. Currently learning about Back-end Development, Cloud Computing and DevOps.",
+    "email": "shina.dhingra11@gmail.com",
+    "url": "https://www.linkedin.com/in/shinadhingra11/",
+    "summary": "Data Scientist, at the moment. I work on Tableau and Python with Snowflake / AWS / Terraform. Currently learning about Back-end Development, Cloud Computing and DevOps.",
     "theme": "red",
     "location": {
-      "address": "Alcalá de Henares",
-      "city": "Madrid",
-      "countryCode": "ES",
-      "region": "Spain"
+      "address": "Friedrichshain",
+      "city": "Berlin",
+      "countryCode": "DE",
+      "region": "Germany"
     },
     "profiles": [
       {
         "network": "X / Twitter",
         "icon": "ri:twitter-fill",
         "color": "#1DA1F2",
-        "username": "@arielGfalcon",
-        "url": "https://x.com/arielGfalcon"
+        "username": "@shina_dhingra",
+        "url": "https://x.com/shina_dhingra"
       },
       {
         "network": "LinkedIn",
         "icon": "ri:linkedin-fill",
         "color": "#0066C2",
-        "username": "Ariel Falcón",
-        "url": "https://linkedin.com/in/arielfalcon"
+        "username": "Shina Dhingra",
+        "url": "https://www.linkedin.com/in/shinadhingra/"
       },
       {
         "network": "GitHub",
         "icon": "mdi:github",
         "color": "#929AAB",
-        "username": "ArielFalcon",
-        "url": "https://github.com/ArielFalcon"
+        "username": "shinadhingra11",
+        "url": "https://github.com/shinadhingra11"
       },
       {
         "network": "Email",
         "icon": "ri:mail-fill",
         "color": "#D44638",
-        "username": "Ariel González Falcón",
-        "url": "mailto:falconyumn@gmail.com"
+        "username": "Shina Dhingra",
+        "url": "mailto:shina.dhingra11@gmail.com"
       }
     ]
   },
   "education": [
     {
-      "institution": "TEIDE Formation Center – Spain",
-      "url": "https://www.linkedin.com/company/teide-centros-de-formaci%C3%B3n/",
-      "area": "Web Development",
+      "institution": "University of North Carolina Charlotte – United States",
+      "url": "https://www.linkedin.com/school/unc-charlotte/",
+      "area": "Master of Science in Data Science and Business Analytics",
       "studyType": "Full-time student",
-      "startDate": "2023-04-01",
-      "endDate": "2023-09-01"
+      "startDate": "2021-08-01",
+      "endDate": "2022-12-01"
     },
     {
-      "institution": "Calixto García Medical School – Cuba",
-      "url": "https://www.linkedin.com/company/hospital-universitario-calixto-garcia/?originalSubdomain=cu",
-      "area": "Medicine (unfinished)",
+      "institution": "Savitribai Phule Pune University – India",
+      "url": "https://www.linkedin.com/school/university-of-pune/?originalSubdomain=in",
+      "area": "B.E. - Electronics and Telecommunications Engineering",
       "studyType": "Full-time student",
-      "startDate": "2018-9-01",
-      "endDate": "2021-7-01"
-    }
-  ],
-  "certificates": [
-    {
-      "name": "AWS Certified Developer – Associate",
-      "date": "2025-05-01",
-      "url": "",
-      "issuer": "Amazon"
-    },
-    {
-      "name": "C1 Advanced English",
-      "date": "2025-01-03",
-      "url": "https://cert.efset.org/es/6jDrGH",
-      "issuer": "EF SET"
+      "startDate": "2014-05-01",
+      "endDate": "2018-05-01"
     }
   ],
   "work": [
     {
-      "name": "Zener Soft Consulting",
-      "position": "Front-end Developer",
+      "name": "Discover Financial Services",
+      "position": "Senior Data Scientist",
       "location_type": "Remote",
-      "location": "ES",
-      "url": "https://www.linkedin.com/company/aitor-pelaez-zenerconsulting-com/",
-      "startDate": "2023-07-03",
-      "endDate": null,
+      "location": "US",
+      "url": "https://www.linkedin.com/company/discover-financial-services/",
+      "startDate": "2023-01-01",
+      "endDate": "2024-10-01",
       "summary": "Experienced in developing high-complexity, scalable, data-driven front-end projects with a focus on performance, user experience, and system integration. Participated in development of a complex Micro-services Hexagonal DDD Spring Java project.",
       "highlights": [
         "Developed a data-intensive Angular project for internal use in the national healthcare system, focusing on managing complex data sets and implementing business logic."
